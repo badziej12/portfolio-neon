@@ -1,1 +1,15 @@
 @import "vendor/flexboxgrid";
+@import "variables";
+@import "screen-sizing";
+
+body {
+  background-color: var(--page-background);
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

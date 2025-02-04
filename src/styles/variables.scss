@@ -1,8 +1,8 @@
 @import "colors";
 
 :root {
-  --page-background: $black-bg;
-  --cyan-color: $cyan;
-  --cyan-text-color: $cyan-2;
-  --cyan-glow-color: $cyan-3;
+  --page-background: #{$black-bg};
+  --cyan-color: #{$cyan};
+  --cyan-text-color: #{$cyan-2};
+  --cyan-glow-color: #{$cyan-3};
 }

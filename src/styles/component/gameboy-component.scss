@@ -1,0 +1,92 @@
+.gameboy-component {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  svg {
+    position: relative;
+    z-index: 2;
+    transform: translate(-2%, 10%);
+    animation: gameboyMoveIn 2s forwards, gameboyZoomIn 3s 2s forwards;
+    transform-origin: center;
+
+    .svg-screen-element {
+      animation: screenFadeOut 2s 2s forwards;
+    }
+  }
+
+  &__screen {
+    position: absolute;
+    z-index: 1;
+    top: 49.8%;
+    left: 50.4%;
+    transform: translate(-50%, -50%);
+    width: 1593.59px;
+    aspect-ratio: 318.72/212.6;
+    perspective: 70px;
+    overflow: hidden;
+
+    &__background {
+      position: absolute;
+      width: 300%;
+      height: 50%;
+      bottom: 0;
+      background-image: url("~/public/assets/images/grid-bg.svg");
+      background-position: 0;
+      background-size: 100px;
+      animation: moveBg 200s infinite linear, slideInBg 8s 2s forwards;
+      transform: rotateX(160deg) translateX(-50%) translateY(100%);
+    }
+  }
+}
+
+@keyframes gameboyMoveIn {
+  from {
+    top: -100vh;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+@keyframes gameboyZoomIn {
+  from {
+    transform: translate(-2%, 10%) scale(1);
+  }
+
+  to {
+    transform: translate(-2%, 10%) scale(5);
+  }
+}
+
+@keyframes screenFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes moveBg {
+  from {
+    background-position: 0;
+  }
+
+  to {
+    background-position: 200%;
+  }
+}
+
+@keyframes slideInBg {
+  from {
+    transform: rotateX(160deg) translateX(-50%) translateY(100%);
+  }
+
+  to {
+    transform: rotateX(160deg) translateX(-50%) translateY(0);
+  }
+}
+
