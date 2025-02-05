@@ -1,0 +1,27 @@
+.main-menu-item {
+    display: flex;
+    cursor: pointer;
+
+    img {
+        filter: grayscale(100%);
+        image-rendering: crisp-edges;
+    }
+
+    h2 {
+        font-size: 4.8rem;
+        color: var(--cyan-text-color);
+        text-shadow: 0 0 2rem var(--cyan-glow-color);
+        text-align: center;
+    }
+
+    &:hover {
+        img {
+            filter: grayscale(0);
+        }
+
+        h2 {
+            color: var(--pink-text-color);
+            text-shadow: 0 0 2rem var(--pink-glow-color);
+        }
+    }
+}
