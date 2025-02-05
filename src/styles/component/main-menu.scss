@@ -1,0 +1,20 @@
+.main-menu {
+    cursor: pointer;
+    animation: mainMenuAppear 2.5s 4s forwards linear;
+    transform: scale(0);
+
+    &__content {
+        display: flex;
+        padding-top: 4.8rem;
+        justify-content: space-around;
+    }
+}
+
+@keyframes mainMenuAppear {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
