@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MainMenu } from "./MainMenu";
 import { ScreenSwitcher } from "./ScreenSwitcher";
+import { AboutSection } from "./AboutSection";
 
 export const GameboyScreen = () => {
     const [currentScreen, setCurrentScreen] = useState("main-menu");
@@ -15,7 +16,7 @@ export const GameboyScreen = () => {
             <div className="gameboy-screen__content">
                 <ScreenSwitcher currentScreen={currentScreen} onScreenChange={handleScreenChange}>
                     <MainMenu key={"main-menu"} onScreenChange={handleScreenChange}/>
-                    <MainMenu key={"about"} onScreenChange={handleScreenChange}/>
+                    <AboutSection key={"about"} onScreenChange={handleScreenChange}/>
                 </ScreenSwitcher>                
             </div>
         </div> 
