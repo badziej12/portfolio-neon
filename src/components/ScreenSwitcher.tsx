@@ -13,7 +13,7 @@ type ChildProps = {
 
 export const ScreenSwitcher: FC<ScreenSwitcherProps> = ({onScreenChange, currentScreen, children}) => {
     return (
-        <div className="screen-switcher">
+        <div className="screen-switcher" style={{height: "100%"}}>
             {React.Children.map(children, (child) => {
                 if (React.isValidElement<ChildProps>(child) && child.key === currentScreen) {
                     return React.cloneElement(child, { onScreenChange });
