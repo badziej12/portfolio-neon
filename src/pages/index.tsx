@@ -1,5 +1,6 @@
 import Head from "next/head";
 import {Gameboy} from "@/components/Gameboy";
+import { ScreenProvider } from "@/context/ScreenContext";
 
 export default function Home() {
     return (
@@ -10,7 +11,9 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
             <div className="main-wrapper">
-                <Gameboy />
+                <ScreenProvider>
+                    <Gameboy />
+                </ScreenProvider>
             </div>
         </>
     );
