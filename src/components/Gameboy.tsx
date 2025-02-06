@@ -1,3 +1,4 @@
+import { ScreenProvider } from "@/context/ScreenContext";
 import { GameboyScreen } from "./GameboyScreen";
 
 export const Gameboy = () => {
@@ -420,7 +421,9 @@ export const Gameboy = () => {
                         fill="#68248d" opacity="1.00" stroke="#68248d" stroke-width="0.25"/>
                 </svg>
             </div>
-            <GameboyScreen />
+            <ScreenProvider>
+                <GameboyScreen />
+            </ScreenProvider>
         </div>
     );
 }
