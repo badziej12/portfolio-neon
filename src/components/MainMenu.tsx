@@ -1,11 +1,8 @@
-import { FC } from "react";
+import { useScreen } from "@/context/ScreenContext";
 import { MainMenuItem } from "./MainMenuItem"
 
-type MainMenuProps = {
-    onScreenChange: (screen: string) => void;
-}
+export const MainMenu = () => {
 
-export const MainMenu:FC<MainMenuProps> = ({onScreenChange}) => {
     const menuItems = [
         {
             title: "Contact",
@@ -31,7 +28,7 @@ export const MainMenu:FC<MainMenuProps> = ({onScreenChange}) => {
         <div className="main-menu">
             <div className="main-menu__content">
                 {menuItems.map((item) => (
-                    <MainMenuItem key={item.title} title={item.title} image={item.image} imageAlt={item.imageAlt} screenName={item.screenName} onScreenChange={onScreenChange} />
+                    <MainMenuItem key={item.title} title={item.title} image={item.image} imageAlt={item.imageAlt} screenName={item.screenName} />
                 ))}
             </div>
         </div>

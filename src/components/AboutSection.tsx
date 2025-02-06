@@ -1,11 +1,8 @@
-import { FC, use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ExitButton } from "./ExitButton";
+import { useScreen } from "@/context/ScreenContext";
 
-type AboutSectionProps = {
-    onScreenChange: (screen: string) => void;
-}
-
-export const AboutSection:FC<AboutSectionProps> = ({onScreenChange}) => {
+export const AboutSection = () => {
     const fullText = "Jestem front-end developerem, świeżo po ponad rocznym stażu w Opera Software. \
                     Moja przygoda z programowaniem zaczęła się z własnej inicjatywy – choć podstawy zdobyłem na studiach (Teleinformatyka), \
                     to dopiero przy pracy nad inżynierskim projektem odkryłem swoją pasję do web developmentu. \
@@ -16,6 +13,8 @@ export const AboutSection:FC<AboutSectionProps> = ({onScreenChange}) => {
     const [displayedText, setDisplatedText] = useState("");
     const [index, setIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(false);
+
+    const { onScreenChange } = useScreen();
 
     useEffect(() => {
         const delay = setTimeout(() => {
@@ -46,7 +45,7 @@ export const AboutSection:FC<AboutSectionProps> = ({onScreenChange}) => {
                 <p>
                     {displayedText}
                 </p>
-                <ExitButton onScreenChange={onScreenChange} />
+                <ExitButton onScreenChange={() => onScreenChange('main-menu')} />
             </div>
         </div>
     )
