@@ -1,12 +1,16 @@
 .main-menu {
     cursor: pointer;
-    animation: mainMenuAppear 1.5s 3.5s forwards linear;
+    animation: mainMenuAppear 1s forwards linear;
     transform: scale(0);
 
     &__content {
         display: flex;
         padding-top: 4.8rem;
         justify-content: space-around;
+    }
+
+    &--first-load {
+        animation: mainMenuAppear 1.5s 3.5s forwards linear;
     }
 }
 

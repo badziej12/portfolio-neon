@@ -1,6 +1,7 @@
 import { MainMenu } from "./MainMenu";
 import { ScreenSwitcher } from "./ScreenSwitcher";
 import { AboutSection } from "./AboutSection";
+import { useFirstLoad } from "@/context/ScreenContext";
 
 export const GameboyScreen = () => {
 
