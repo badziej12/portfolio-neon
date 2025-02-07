@@ -1,7 +1,8 @@
 import { MainMenu } from "./MainMenu";
 import { ScreenSwitcher } from "./ScreenSwitcher";
 import { AboutSection } from "./AboutSection";
-import { useFirstLoad } from "@/context/ScreenContext";
+import { ConsoleScreen } from "./ConsoleScreen";
+import { ContactForm } from "./ContactForm";
 
 export const GameboyScreen = () => {
 
@@ -10,7 +11,12 @@ export const GameboyScreen = () => {
             <div className="gameboy-screen__content">
                 <ScreenSwitcher>
                     <MainMenu key={"main-menu"} />
-                    <AboutSection key={"about"} />
+                    <ConsoleScreen key={"about"}>
+                        <AboutSection />
+                    </ConsoleScreen>
+                    <ConsoleScreen key={"contact"}>
+                        <ContactForm />
+                    </ConsoleScreen>
                 </ScreenSwitcher>                
             </div>
         </div> 

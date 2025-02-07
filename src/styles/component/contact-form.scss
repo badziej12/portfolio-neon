@@ -1,0 +1,127 @@
+.contact-form {
+    height: 100%;
+    animation: 2s addOverflow steps(1) forwards;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 2.4rem;
+    }
+
+    &__input-wrapper {
+        position: relative;
+    }
+
+    .custom-cursor {
+        display: none;
+        position: absolute;
+        bottom: 1rem;
+        left: 10px;
+        transform: translateY(-100%);
+        width: 1.5rem;
+        height: .3rem;
+        color: var(--cyan-text-color);
+        background-color: var(--cyan-text-color);
+        box-shadow: 0 0 2rem rgb(255, 255, 255);
+        opacity: 0;
+        animation: blinker .7s steps(1) infinite;
+    }
+
+    &__input-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        color: var(--cyan-text-color);
+        text-shadow: 0 0 1rem rgba(68, 252, 229, .5);
+
+        label {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            margin-left: .5rem;
+        }
+
+        input, textarea{
+            background-color: transparent;
+            border: none;
+            border-bottom: .1rem solid var(--cyan-text-color);
+            color: var(--cyan-text-color);
+            text-shadow: 0 0 1rem rgba(68, 252, 229, .5);
+            font-size: 2.4rem;
+            padding: 1rem;
+            outline: none;
+            font-family: inherit;
+            caret-color: transparent;
+            width: 100%;
+
+            &:focus {
+                border-bottom: .1rem solid var(--pink-text-color);
+                color: var(--pink-text-color);
+                text-shadow: 0 0 1rem var(--pink-glow-color);
+            }
+
+            &::placeholder {
+                text-shadow: none;
+            }
+        }
+
+        input {
+            &:focus {
+                & + .custom-cursor {
+                    display: block;
+                }
+            }
+        }
+
+        textarea {
+            resize: none;
+        }
+    }
+
+    &__button {
+        background-color: rgba(0, 0, 0, .2);
+        border: .2rem solid var(--cyan-text-color);
+        color: var(--cyan-text-color);
+        text-shadow: 0 0 1rem rgba(68, 252, 229, .5);
+        font-size: 2.8rem;
+        font-family: inherit;
+        padding: 1rem;
+        min-width: 18rem;
+        margin-top: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--pink-text-color);
+            color: var(--pink-text-color);
+            text-shadow: 0 0 1rem var(--pink-glow-color);
+        }
+    }
+
+    .error-message {
+        font-size: 1.6rem;
+        color: var(--error-color);
+        text-shadow: 0 0 .5rem var(--error-color);
+        margin-top: .8rem;
+      }
+    
+      .status-message {
+        font-size: 1.6rem;
+        color: var(--sucess-color);
+        text-shadow: 0 0 .5rem var(--sucess-color);
+        margin-top: .8rem;
+        text-align: right;
+    
+        &.error {
+          color: var(--error-color);
+          text-shadow: 0 0 .5rem var(--error-color);
+        }
+      }
+}
+
+@keyframes addOverflow {
+    0% {
+        overflow-y: visible;
+    }
+    100% {
+        overflow-y: scroll;
+    }
+}

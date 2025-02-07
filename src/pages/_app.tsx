@@ -6,6 +6,8 @@ import "@/styles/component/main-menu.scss";
 import "@/styles/component/main-menu-item.scss";
 import "@/styles/component/about-section.scss";
 import "@/styles/component/exit-button.scss";
+import "@/styles/component/console-screen.scss";
+import "@/styles/component/contact-form.scss";
 import type {AppProps} from "next/app";
 
 export default function App({Component, pageProps}: AppProps) {
