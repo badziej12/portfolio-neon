@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ExitButton } from "./ExitButton";
 import { useScreen } from "@/context/ScreenContext";
 
 export const AboutSection = () => {
@@ -38,15 +37,9 @@ export const AboutSection = () => {
     
     return (
         <div className="about-section">
-            <span className="about-section__corner about-section__corner--left"></span>
-            <span className="about-section__corner about-section__corner--up-right"></span>
-            <span className="about-section__corner about-section__corner--down-right"></span>
-            <div className="about-section__content">
-                <p>
-                    {displayedText}
-                </p>
-                <ExitButton onScreenChange={() => onScreenChange('main-menu')} />
-            </div>
+            <p>
+                {displayedText}
+            </p>
         </div>
     )
 }
