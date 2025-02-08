@@ -1,11 +1,25 @@
 .exit-button {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
     background-color: transparent;
     border: none;
-    filter: drop-shadow(0 0 1rem #FF0000);
-    opacity: 0.5;
+    
+    opacity: 1;
     cursor: pointer;
+    padding: 1rem;
+    border: .2rem solid var(--error-color);
+    background-color: #FF004040;
+    box-shadow: 0 .5rem 0 #FF0040A0;
+
+    img {
+        position: relative;
+        filter: drop-shadow(0 0 1rem #FF0000);
+    }
 
     &:hover {
         opacity: 1;
+        box-shadow: none;
+        transform: translateY(.5rem);
     }
 }
