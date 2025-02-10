@@ -1,10 +1,7 @@
-import { FC } from "react";
+import { useScreen } from "@/context/ScreenContext";
 
-type ExitButtonProps = {
-    onScreenChange: (screen: string) => void;
-}
-
-export const ExitButton:FC<ExitButtonProps> = ({onScreenChange}) => {
+export const ExitButton = () => {
+    const {onScreenChange} = useScreen();
     const image = "/assets/images/cross.png";
 
     return (

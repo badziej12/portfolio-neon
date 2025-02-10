@@ -1,0 +1,43 @@
+<svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M63 50V3H65V50H63Z" fill="#00A0A0"/>
+<path d="M63 50V3H65V50H63Z" fill="#00A0A0"/>
+<path d="M3 63H50V65H3V63Z" fill="#00A0A0"/>
+<path d="M3 63H50V65H3V63Z" fill="#00A0A0"/>
+<path d="M60 52V50H62V52H60Z" fill="#00A0A0"/>
+<path d="M60 52V50H62V52H60Z" fill="#00A0A0"/>
+<path d="M58 54V52H60V54H58Z" fill="#00A0A0"/>
+<path d="M58 54V52H60V54H58Z" fill="#00A0A0"/>
+<path d="M53 59V57H55V59H53Z" fill="#00A0A0"/>
+<path d="M53 59V57H55V59H53Z" fill="#00A0A0"/>
+<path d="M57 55V53H59V55H57Z" fill="#00A0A0"/>
+<path d="M57 55V53H59V55H57Z" fill="#00A0A0"/>
+<path d="M55 57V54H57V57H55Z" fill="#00A0A0"/>
+<path d="M55 57V54H57V57H55Z" fill="#00A0A0"/>
+<path d="M51 61V58H54V61H51Z" fill="#00A0A0"/>
+<path d="M51 61V58H54V61H51Z" fill="#00A0A0"/>
+<path d="M50 62V60H52V62H50Z" fill="#00A0A0"/>
+<path d="M50 62V60H52V62H50Z" fill="#00A0A0"/>
+<rect y="10" width="3" height="3" fill="#00FFFF"/>
+<rect x="3" y="8" width="2" height="2" fill="#00FFFF"/>
+<rect x="5" y="5" width="3" height="3" fill="#00FFFF"/>
+<rect x="10" width="50" height="3" fill="#00FFFF"/>
+<rect y="60" width="50" height="3" fill="#00FFFF"/>
+<path d="M60 50V0H63V50H60Z" fill="#00FFFF"/>
+<path d="M60 50V0H63V50H60Z" fill="#00FFFF"/>
+<rect y="63" width="50" height="3" transform="rotate(-90 0 63)" fill="#00FFFF"/>
+<path d="M8 3H10V5H8V3Z" fill="#00FFFF"/>
+<path d="M8 3H10V5H8V3Z" fill="#00FFFF"/>
+<rect x="50" y="57" width="3" height="3" fill="#00FFFF"/>
+<rect x="53" y="55" width="2" height="2" fill="#00FFFF"/>
+<rect x="55" y="52" width="3" height="3" fill="#00FFFF"/>
+<rect x="58" y="50" width="2" height="2" fill="#00FFFF"/>
+<rect x="50" y="54" width="3" height="3" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="50" y="52" width="5" height="2" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="50" y="50" width="8" height="2" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="53" y="54" width="2" height="1" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="5" y="8" width="5" height="2" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="8" y="8" width="3" height="2" transform="rotate(-90 8 8)" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="3" y="10" width="47" height="50" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="10" y="3" width="50" height="7" fill="#00FFFF" fill-opacity="0.2"/>
+<rect x="50" y="50" width="40" height="10" transform="rotate(-90 50 50)" fill="#00FFFF" fill-opacity="0.2"/>
+</svg>

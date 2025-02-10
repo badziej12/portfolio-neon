@@ -10,7 +10,7 @@
     padding: 1rem;
     border: .2rem solid var(--error-color);
     background-color: #FF004040;
-    box-shadow: 0 .5rem 0 #FF0040A0;
+    box-shadow: .2rem .2rem 0 .2rem #FF0040A0;
 
     img {
         position: relative;
@@ -20,6 +20,6 @@
     &:hover {
         opacity: 1;
         box-shadow: none;
-        transform: translateY(.5rem);
+        transform: translate(.4rem, .4rem);
     }
 }

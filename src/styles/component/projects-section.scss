@@ -1,0 +1,17 @@
+.projects-section {
+    position: relative;
+    padding: 3.2rem;
+    padding-top: 10rem;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+    }
+
+    .exit-button {
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+    }
+}

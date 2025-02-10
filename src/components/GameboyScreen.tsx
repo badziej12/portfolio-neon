@@ -3,6 +3,7 @@ import { ScreenSwitcher } from "./ScreenSwitcher";
 import { AboutSection } from "./AboutSection";
 import { ConsoleScreen } from "./ConsoleScreen";
 import { ContactForm } from "./ContactForm";
+import { ProjectsSection } from "./ProjectsSection";
 
 export const GameboyScreen = () => {
 
@@ -17,6 +18,7 @@ export const GameboyScreen = () => {
                     <ConsoleScreen key={"contact"}>
                         <ContactForm />
                     </ConsoleScreen>
+                    <ProjectsSection key={"projects"} />
                 </ScreenSwitcher>                
             </div>
         </div> 
