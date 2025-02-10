@@ -1,0 +1,235 @@
+.projects-section-item {
+    $projects-item-count: 2;
+
+    display: flex;
+    gap: 3.2rem;
+    cursor: pointer;
+
+    @for $i from 2 through $projects-item-count {
+        &:nth-child(#{$i}n) {
+            .projects-section-item{
+                &__description-box {
+                    &__container {
+                        animation-delay: #{$i *.7}s;
+
+                        &:after {
+                            animation-delay: #{$i *.5}s;
+                        }
+                    }
+
+                    &__content {
+                        animation-delay: #{$i * .2}s;
+                    }
+
+                    &__decoration {
+                        animation-delay: #{$i *.6}s;
+                    }
+                }
+
+                &__text {
+                    animation-delay: #{$i * .2}s;
+                }
+            }
+        }
+    }
+
+    &__icon-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 12rem;
+        width: 12rem;
+        background-image: url("~/public/assets/images/projects/project-box.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        aspect-ratio: 1/1;
+
+        img {
+            position: relative;
+            height: 70%;
+            width: 70%;
+            filter: drop-shadow(0 0 .5rem #FFFFFF40);
+        }
+    }
+
+    &__description-box {
+        position: relative;
+        flex-grow: 1;
+
+        &::before {
+            position: absolute;
+            content: "";
+            left: -2rem;
+            display: block;
+            width: .5rem;
+            height: 100%;
+            background-color: var(--cyan-color);
+        }
+
+        &__container {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: none;
+            animation: showBoxShadow .4s forwards;
+            animation-delay: 1s;
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 300%;
+                top: -50%;
+                width: 10rem;
+                background-color: #00FFFF30;
+                transform: rotate(30deg);
+                box-shadow: 0 0 2rem .4rem rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(.1rem);
+                left: -100%;
+                animation: shineSlide 1s forwards;
+                animation-delay: .7s;
+            }
+        }
+
+        &__content {
+            height: 100%;
+            overflow: hidden;
+            border: .5rem solid var(--cyan-color);
+            background-color: #00FFFF30;
+            width: 0;
+            animation: expandProjectRow 1s forwards;
+            animation-delay: 0;
+        }
+
+        &__decoration {
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;   
+            aspect-ratio: 1/1;
+            filter: blur(20rem);
+            animation: showCornerElements .5s forwards;
+            animation-delay: 1s;
+
+            &--up-left-corner {
+                top: 1.2rem;
+                left: 1.2rem;
+                background-image: url("~/public/assets/images/projects/decoration-1.svg");
+                width: 2rem;
+            }
+
+            &--down-left-corner {
+                bottom: 1.2rem;
+                left: 1.2rem;
+                background-image: url("~/public/assets/images/projects/decoration-2.svg");
+                width: 1rem;
+            }
+
+            &--right-corner {
+                top : 1.2rem;
+                right: 1.2rem;
+                background-image: url("~/public/assets/images/projects/decoration-2.svg");
+                width: 1rem;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &:hover {
+        .projects-section-item {
+            &__icon-box {
+                background-image: url("~/public/assets/images/projects/project-box-hovered.svg");
+
+                img {
+                    top: .3rem;
+                    left: .3rem;
+                    filter: drop-shadow(0 0 .5rem #FFFFFF40) brightness(2);
+                }
+            }
+            
+            &__description-box {
+                &__container {
+                    transform: translate(.5rem, .5rem);
+                }
+
+                &__content {
+                    border-color: #DCFFFF;
+                    background-color: #9AFFFF45;
+                    box-shadow: none;
+                }
+                
+
+                &::before {
+                    background-color: #DCFFFF;
+                    transform: translate(.5rem, .5rem);
+                }
+            }
+        }
+    }
+
+    &__text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 1.6rem 4.8rem; 
+        height: 100%;
+        color: var(--cyan-text-color);
+        text-shadow: 0 0 .2rem var(--cyan-glow-color);
+        letter-spacing: .2rem;
+        transform: translateX(-100%);
+        animation: projectCopySlideIn 1s forwards;
+        
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+    }
+}
+
+@keyframes expandProjectRow {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes projectCopySlideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes showBoxShadow {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: .2rem .2rem 0 .2rem #00A0A0;
+    }
+}
+
+@keyframes showCornerElements {
+    0% {
+        filter: blur(2rem);
+    }
+    100% {
+        filter: blur(0);
+    }
+} 
+
+@keyframes shineSlide {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}

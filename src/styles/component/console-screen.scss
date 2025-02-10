@@ -4,7 +4,6 @@
     border: .5rem solid var(--cyan-color);
     background-image: url("~/public/assets/images/about/section-background.png");
     animation: consoleBackground 1s infinite steps(25), consoleExtend 1s 1s linear forwards;
-    overflow: hidden;
 
     &__corner {
         position: absolute;
