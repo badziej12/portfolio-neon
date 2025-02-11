@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 .contact-form {
     animation: 2s addOverflow steps(1) forwards;
 
@@ -29,13 +31,13 @@
     &__input-container {
         display: flex;
         flex-direction: column;
-        margin-bottom: 2rem;
+        margin-bottom: 24px;
         color: var(--cyan-text-color);
         text-shadow: 0 0 1rem rgba(68, 252, 229, .5);
 
         label {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
             margin-left: .5rem;
         }
 
@@ -46,7 +48,7 @@
             color: var(--cyan-text-color);
             text-shadow: 0 0 1rem rgba(68, 252, 229, .5);
             font-size: 2.4rem;
-            padding: 1rem;
+            padding: 12px;
             outline: none;
             font-family: inherit;
             caret-color: transparent;
@@ -74,6 +76,36 @@
         textarea {
             resize: none;
         }
+
+        @include media-xl {
+            label {
+                font-size: 2.2rem;
+            }
+
+            input, textarea {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @include media-lg {
+            label {
+                font-size: 2.6rem;
+            }
+
+            input, textarea {
+                font-size: 3rem;
+            }
+        }
+
+        @include media-md {
+            label {
+                font-size: 20px;
+            }
+
+            input, textarea {
+                font-size: 19px;
+            }
+        }
     }
 
     &__button {
@@ -93,27 +125,51 @@
             color: var(--pink-text-color);
             text-shadow: 0 0 1rem var(--pink-glow-color);
         }
+
+        @include media-xxl {
+            font-size: 3.2rem;
+            padding: 1.2rem;
+            min-width: 20rem;
+        }
+
+        @include media-xl {
+            font-size: 3.6rem;
+            padding: 1.4rem;
+            min-width: 22rem;
+        }
+        
+        @include media-lg {
+            font-size: 4rem;
+            padding: 1.6rem;
+            min-width: 24rem;
+        }
+
+        @include media-md {
+            font-size: 24px;
+            padding: 12px;
+            width: 100%;
+        }
     }
 
     .error-message {
-        font-size: 1.6rem;
+        font-size: 16px;
         color: var(--error-color);
         text-shadow: 0 0 .5rem var(--error-color);
         margin-top: .8rem;
       }
     
-      .status-message {
-        font-size: 1.6rem;
+    .status-message {
+        font-size: 16px;
         color: var(--sucess-color);
         text-shadow: 0 0 .5rem var(--sucess-color);
-        margin-top: .8rem;
+        margin-top: 8px;
         text-align: right;
-    
+
         &.error {
-          color: var(--error-color);
-          text-shadow: 0 0 .5rem var(--error-color);
+            color: var(--error-color);
+            text-shadow: 0 0 .5rem var(--error-color);
         }
-      }
+    }
 }
 
 @keyframes addOverflow {
