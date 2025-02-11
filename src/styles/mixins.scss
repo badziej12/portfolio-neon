@@ -1,0 +1,31 @@
+@import 'screen-sizing';
+
+@mixin media-sm {
+  @media screen and (max-width: $screen-sm - 1) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media screen and (max-width: $screen-md - 1) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media screen and (max-width: $screen-lg - 1) {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @media screen and (max-width: $screen-xl - 1) {
+    @content;
+  }
+}
+
+@mixin media-xxl {
+  @media screen and (max-width: $screen-xxl - 1) {
+    @content;
+  }
+}
