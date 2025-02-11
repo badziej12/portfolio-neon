@@ -9,10 +9,14 @@
     position: absolute;
     width: 70%;
     height: 20%;
-    perspective: 10rem;
+    perspective: 7rem;
     left: 50%;
     transform: translate(-50%, 235%);
     overflow: hidden;
+
+    @include media-md {
+      perspective: 10rem;
+    }
     
 
     &:before {
@@ -22,9 +26,8 @@
       height: 100%;
       background-image: url("~/public/assets/images/grid-bg-2.png");
       background-repeat: repeat-x;
-      background-size: 100%;
-      animation: moveBg 300s infinite linear, slideInBg 8s 2s forwards;
-      transform: rotateX(35deg) translate(-25%, 100%);
+      animation: moveBg 200s infinite linear, slideInBg 8s 2s forwards;
+      transform: rotateX(20deg) translate(-25%, 100%);
     }
 
     &.darken {
@@ -116,10 +119,10 @@
 
 @keyframes slideInBg {
   from {
-    transform: rotateX(35deg) translate(-25%, 100%);
+    transform: rotateX(20deg) translate(-25%, 100%);
   }
 
   to {
-    transform: rotateX(35deg) translate(-25%, -25%);
+    transform: rotateX(20deg) translate(-25%, -25%);
   }
 }

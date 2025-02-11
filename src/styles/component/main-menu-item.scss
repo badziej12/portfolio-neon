@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 .main-menu-item {
     display: flex;
     cursor: pointer;
@@ -7,6 +9,16 @@
         image-rendering: crisp-edges;
         width: 30rem;
         height: 30rem;
+
+        @include media-md {
+            width: 40rem;
+            height: 40rem;
+        }
+
+        @include media-sm {
+            width: 50rem;
+            height: 50rem;
+        }
     }
 
     h2 {
@@ -14,6 +26,14 @@
         color: var(--cyan-text-color);
         text-shadow: 0 0 2rem var(--cyan-glow-color);
         text-align: center;
+
+        @include media-md {
+            font-size: 6.8rem;
+        }
+
+        @include media-sm {
+            font-size: 8.8rem;
+        }
     }
 
     &:hover {
