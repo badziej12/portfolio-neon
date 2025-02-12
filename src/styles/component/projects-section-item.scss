@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 .projects-section-item {
     $projects-item-count: 2;
 
@@ -37,18 +39,48 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 12rem;
-        width: 12rem;
+        min-width: 14rem;
+        width: 14rem;
+        height: 14rem;
         background-image: url("~/public/assets/images/projects/project-box.svg");
         background-repeat: no-repeat;
         background-size: contain;
-        aspect-ratio: 1/1;
 
         img {
             position: relative;
             height: 70%;
             width: 70%;
             filter: drop-shadow(0 0 .5rem #FFFFFF40);
+        }
+
+        @include media-xxl {
+            min-width: 16rem;
+            width: 16rem;
+            height: 16rem;
+        }
+
+        @include media-xl {
+            min-width: 18rem;
+            width: 18rem;
+            height: 18rem;
+        }
+
+        @include media-lg {
+            min-width: 20rem;
+            width: 20rem;
+            height: 20rem;
+        }
+
+        @include media-md {
+            min-width: 26rem;
+            width: 26rem;
+            height: 26rem;
+        }
+
+        @include media-sm {
+            min-width: 30rem;
+            width: 30rem;
+            height: 30rem;
         }
     }
 
@@ -73,6 +105,14 @@
             box-shadow: none;
             animation: showBoxShadow .4s forwards;
             animation-delay: 1s;
+
+            @include media-lg {
+                height: 180px;
+            }
+
+            @include media-sm {
+                height: 240px;
+            }
 
             &::after {
                 content: "";
@@ -130,6 +170,46 @@
                 width: 1rem;
                 transform: rotate(180deg);
             }
+
+            @include media-md {
+                &--up-left-corner {
+                    top: 1.6rem;
+                    left: 1.6rem;
+                    width: 2.4rem;
+                }
+
+                &--down-left-corner {
+                    bottom: 1.6rem;
+                    left: 1.6rem;
+                    width: 1.2rem;
+                }
+
+                &--right-corner {
+                    top : 1.6rem;
+                    right: 1.6rem;
+                    width: 1.2rem;
+                }
+            }
+
+            @include media-sm {
+                &--up-left-corner {
+                    top: 2rem;
+                    left: 2rem;
+                    width: 3rem;
+                }
+
+                &--down-left-corner {
+                    bottom: 2rem;
+                    left: 2rem;
+                    width: 1.5rem;
+                }
+
+                &--right-corner {
+                    top : 2rem;
+                    right: 2rem;
+                    width: 1.5rem;
+                }
+            }
         }
     }
 
@@ -169,22 +249,41 @@
         position: absolute;
         left: 0;
         right: 0;
-        padding: 1.6rem 4.8rem; 
+        padding: 16px 48px; 
         height: 100%;
         color: var(--cyan-text-color);
-        text-shadow: 0 0 .2rem var(--cyan-glow-color);
-        letter-spacing: .2rem;
+        text-shadow: 0 0 2px var(--cyan-glow-color);
+        letter-spacing: 2px;
         transform: translateX(-100%);
         animation: projectCopySlideIn 1s forwards;
         
         h2 {
-            font-size: 2.8rem;
+            font-size: 28px;
             font-weight: 400;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #00A0A0;
         }
 
         p {
-            font-size: 1.6rem;
+            font-size: 18px;
             font-weight: 300;
+        }
+
+        @include media-xl {
+            padding: 16px 40px; 
+        }
+
+        @include media-md {
+            padding: 3rem 6.4rem; 
+
+            h2 {
+                font-size: 24px;
+            }   
+            
+            p {
+                font-size: 16px;
+            }
         }
     }
 }

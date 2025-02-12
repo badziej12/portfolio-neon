@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 .console-screen {
     position: relative;
     height: 10%;
@@ -38,6 +40,33 @@
         }
     }
 
+    @include media-md {
+        border-width: 1rem;
+
+        &__corner {
+            &--left {
+                width: 19.6rem;
+                height: 16.3rem;
+                top: -2.7rem;
+                left: -2.7rem;
+            }
+
+            &--up-right {
+                width: 12.7rem;
+                height: 16.7rem;
+                top: -2.7rem;
+                right: -2.2rem;
+            }
+
+            &--down-right {
+                width: 22.9rem;
+                height: 14.9rem;
+                bottom: -2.7rem;
+                right: -2.7rem;
+            }
+        }
+    }
+
     &__container {
         height: 100%;
         background: rgba(0, 0, 0, .25);
@@ -45,7 +74,27 @@
     }
 
     &__content {
-        padding: 4.8rem;
+        padding: 6rem;
+
+        @include media-xl {
+            padding: 6.4rem 6rem;
+
+        }
+
+        @include media-lg {
+            padding: 9rem 7rem;
+
+        }
+
+        @include media-md {
+            padding: 10rem 8rem;
+
+        }
+
+        @include media-sm {
+            padding: 12rem 9rem;
+
+        }
     }
 
     .exit-button {

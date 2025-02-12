@@ -1,6 +1,14 @@
 @import "vendor/flexboxgrid";
 @import "variables";
-@import "screen-sizing";
+@import "mixins";
+
+html {
+  font-size: 10px;
+
+  @include media-xxl {
+    font-size: .7vw;
+  }
+}
 
 body {
   background-color: var(--page-background);
