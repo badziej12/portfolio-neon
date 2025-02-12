@@ -8,19 +8,19 @@ export const MainMenu = () => {
     const menuItems = [
         {
             title: "About",
-            image: "/assets/images/about-menu-item.png",
+            image: "/portfolio-neon/assets/images/about-menu-item.png",
             imageAlt: "About",
             screenName: "about",
         },
         {
             title: "Projects",
-            image: "/assets/images/projects-menu-item.png",
+            image: "/portfolio-neon/assets/images/projects-menu-item.png",
             imageAlt: "Projects",
             screenName: "projects",
         },
         {
             title: "Contact",
-            image: "/assets/images/contact-menu-item.png",
+            image: "/portfolio-neon/assets/images/contact-menu-item.png",
             imageAlt: "Contact",
             screenName: "contact",
         },
@@ -29,19 +29,19 @@ export const MainMenu = () => {
     const menuItemsDesktop = [
         {
             title: "Contact",
-            image: "/assets/images/contact-menu-item.png",
+            image: "/portfolio-neon/assets/images/contact-menu-item.png",
             imageAlt: "Contact",
             screenName: "contact",
         },
         {
             title: "About",
-            image: "/assets/images/about-menu-item.png",
+            image: "/portfolio-neon/assets/images/about-menu-item.png",
             imageAlt: "About",
             screenName: "about",
         },
         {
             title: "Projects",
-            image: "/assets/images/projects-menu-item.png",
+            image: "/portfolio-neon/assets/images/projects-menu-item.png",
             imageAlt: "Projects",
             screenName: "projects",
         },
