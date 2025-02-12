@@ -18,6 +18,7 @@
     "react-hook-form": "^7.54.2",
     "react-slick": "^0.30.3",
     "sass": "^1.83.4",
+    "slick-carousel": "^1.8.1",
     "yup": "^1.6.1"
   },
   "devDependencies": {

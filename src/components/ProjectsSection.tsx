@@ -22,7 +22,8 @@ export const ProjectsSection = () => {
         <div className="projects-section">
             <div className="projects-section__content">
                 {projects.map((project) => (
-                    <ProjectsSectionItem 
+                    <ProjectsSectionItem
+                        key={project.heading} 
                         imageSrc={project.imageSrc} 
                         imageAlt={project.imageAlt} 
                         heading={project.heading} 

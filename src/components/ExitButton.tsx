@@ -1,4 +1,5 @@
 import { useScreen } from "@/context/ScreenContext";
+import Image from "next/image";
 
 export const ExitButton = () => {
     const {onScreenChange} = useScreen();
@@ -6,7 +7,7 @@ export const ExitButton = () => {
 
     return (
         <button className="exit-button" type="button" onClick={() => onScreenChange("main-menu")}>
-            <img src={image} alt="Exit" />
+            <Image width={40} height={40} src={image} alt="Exit" />
         </button>
     )   
 }

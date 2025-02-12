@@ -1,5 +1,4 @@
-import {FormData} from '@/templates/components/ContactForm';
-import {ValidationError} from "yup";
+import {FormData} from '@/components/ContactForm';
 
 export type ErrorMessage = {
     success: boolean;
@@ -21,7 +20,7 @@ export async function sendEmail(data: FormData): Promise<ErrorMessage> {
         }
 
         return {success: true, message: 'Wiadomość została wysłana pomyślnie!'};
-    } catch (err: any) {
+    } catch {
         return {success: false, message: 'Nie udało się wysłać wiadomości.'};
     }
 }

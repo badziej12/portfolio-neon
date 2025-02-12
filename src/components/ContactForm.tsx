@@ -1,4 +1,4 @@
-import {FC, useEffect, useRef, useState} from "react";
+import {FC, useState} from "react";
 import {useForm} from "react-hook-form";
 import {ErrorMessage, sendEmail} from "@/utils/send-email";
 import {yupResolver} from "@hookform/resolvers/yup";

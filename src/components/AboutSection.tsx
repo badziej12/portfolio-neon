@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useScreen } from "@/context/ScreenContext";
 
 export const AboutSection = () => {
     const fullText = "Jestem front-end developerem, świeżo po ponad rocznym stażu w Opera Software. \
@@ -12,8 +11,6 @@ export const AboutSection = () => {
     const [displayedText, setDisplatedText] = useState("");
     const [index, setIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(false);
-
-    const { onScreenChange } = useScreen();
 
     useEffect(() => {
         const delay = setTimeout(() => {

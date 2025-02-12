@@ -10,6 +10,8 @@ import "@/styles/component/console-screen.scss";
 import "@/styles/component/contact-form.scss";
 import "@/styles/component/projects-section.scss";
 import "@/styles/component/projects-section-item.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import type {AppProps} from "next/app";
 
 export default function App({Component, pageProps}: AppProps) {

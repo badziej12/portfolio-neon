@@ -1,14 +1,6 @@
 import { useFirstLoad } from "@/context/ScreenContext";
 import { MainMenuItem } from "./MainMenuItem";
-import Slider, { CustomArrowProps } from "react-slick";
-
-const NextArrow = (props: CustomArrowProps) => {
-    const {className, style, onClick} = props;
-
-    return (
-        <div className={`${className} main-menu__arrow main-menu__arrow--next`} onClick={onClick} />
-    )
-}
+import Slider from "react-slick";
 
 export const MainMenu = () => {
     const { isFirstLoad } = useFirstLoad();
