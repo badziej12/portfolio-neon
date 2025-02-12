@@ -13,21 +13,6 @@
         position: relative;
     }
 
-    .custom-cursor {
-        display: none;
-        position: absolute;
-        bottom: 1rem;
-        left: 10px;
-        transform: translateY(-100%);
-        width: 1.5rem;
-        height: .3rem;
-        color: var(--cyan-text-color);
-        background-color: var(--cyan-text-color);
-        box-shadow: 0 0 2rem rgb(255, 255, 255);
-        opacity: 0;
-        animation: blinker .7s steps(1) infinite;
-    }
-
     &__input-container {
         display: flex;
         flex-direction: column;
@@ -42,16 +27,18 @@
         }
 
         input, textarea{
+            --font-size : 24px;
             background-color: transparent;
             border: none;
             border-bottom: .1rem solid var(--cyan-text-color);
             color: var(--cyan-text-color);
             text-shadow: 0 0 1rem rgba(68, 252, 229, .5);
-            font-size: 2.4rem;
+            font-size: vaR(--font-size);
             padding: 12px;
             outline: none;
             font-family: inherit;
-            caret-color: transparent;
+            caret-color: var(--pink-text-color);
+            caret-shape: underscore;
             width: 100%;
 
             &:focus {
@@ -62,14 +49,6 @@
 
             &::placeholder {
                 text-shadow: none;
-            }
-        }
-
-        input {
-            &:focus {
-                & + .custom-cursor {
-                    display: block;
-                }
             }
         }
 
@@ -103,7 +82,7 @@
             }
 
             input, textarea {
-                font-size: 19px;
+                font-size: 18px;
             }
         }
     }

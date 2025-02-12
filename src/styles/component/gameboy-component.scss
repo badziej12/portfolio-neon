@@ -56,7 +56,7 @@
     height: 335.1rem;
 
     @include media-xl {
-      height: 300vh;
+      animation: gameboyZoomIMobile 3s 2s forwards;
     }
 
   }
@@ -92,6 +92,16 @@
 
   to {
     transform: translate(-.5%, 2%) scale(1);
+  }
+}
+
+@keyframes gameboyZoomIMobile {
+  from {
+    height: 335.1rem;
+  }
+
+  to {
+    height: 320vh;
   }
 }
 

@@ -13,28 +13,9 @@ export type FormData = {
 
 export const ContactForm: FC = () => {
     const [status, setStatus] = useState<ErrorMessage | null>(null);
-    const {register, handleSubmit, formState: {errors, isSubmitting}, reset, watch} = useForm<FormData>({
+    const {register, handleSubmit, formState: {errors, isSubmitting}, reset} = useForm<FormData>({
         resolver: yupResolver(schema),
     });
-
-    const cursorRefs = useRef<{[key: string]: HTMLSpanElement | null | undefined}>({});
-
-    const watchFields = watch();
-
-    useEffect(() => {
-        Object.keys(watchFields).forEach((key) => updateCursorPosition(key));
-    }, [watchFields]);
-
-    // Aktualizacja pozycji kursora
-    const updateCursorPosition = (key: string) => {
-        const input = document.getElementById(key) as HTMLInputElement | HTMLTextAreaElement;
-        const cursor = cursorRefs.current[key];
-
-        if (input && cursor) {
-            const textWidth = input.value.length * .9; // Przybliżona szerokość znaków
-            cursor.style.left = `${textWidth + 1}rem`; // Dopasowanie pozycji kursora
-        }
-    };
 
     const onSubmit = async (data: FormData) => {
         setStatus(null);
@@ -51,7 +32,6 @@ export const ContactForm: FC = () => {
                     <div className="contact-form__input-wrapper">
                         <input id={"name"} type="text" placeholder={"np. Jan Kowalski"} {...register('name', {required: true})}
                             autoComplete={"on"} className={errors.name ? 'error' : ''}/>
-                        <span ref={(el) => { cursorRefs.current["name"] = el; }} className="custom-cursor"></span>
                     </div>
                     {errors.name && <p className={"error-message"}>{errors.name?.message}</p>}
                 </div>
@@ -61,7 +41,6 @@ export const ContactForm: FC = () => {
                         <input id={"email"} type="email"
                             placeholder={"twój-email@gmail.com"} {...register('email', {required: true})}
                             autoComplete={"on"} className={errors.email ? 'error' : ''}/>
-                        <span ref={(el) => { cursorRefs.current["email"] = el; }} className="custom-cursor"></span>
                     </div>
                     {errors.email && <p className={"error-message"}>{errors.email?.message}</p>}
                 </div>
@@ -70,7 +49,6 @@ export const ContactForm: FC = () => {
                     <div className="contact-form__input-wrapper">
                         <input id={"phoneNumber"} type="tel" className={errors.phoneNumber ? 'error' : ''}
                             placeholder={"123456789"} {...register('phoneNumber', {required: true})}/>
-                        <span ref={(el) => { cursorRefs.current["phoneNumber"] = el; }} className="custom-cursor"></span>
                     </div>
                     {errors.phoneNumber && <p className={"error-message"}>{errors.phoneNumber?.message}</p>}
                 </div>
