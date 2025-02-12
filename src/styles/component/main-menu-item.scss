@@ -4,6 +4,10 @@
     display: flex;
     cursor: pointer;
 
+    @include media-md {
+        justify-content: center;
+    }
+
     img {
         filter: grayscale(100%);
         image-rendering: crisp-edges;
