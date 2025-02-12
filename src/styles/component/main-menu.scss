@@ -2,23 +2,94 @@
 
 .main-menu {
     cursor: pointer;
-    animation: mainMenuAppear 1s forwards linear;
-    transform: scale(0);
+    
+    
+    @include media-md {
+        position: absolute;
+        height: 100%;
+        left: 4%;
+        right: 3%;
+        overflow: hidden;
+    }
 
     &__content {
         display: flex;
         padding-top: 4.8rem;
         justify-content: space-around;
-
-        @include media-md {
-            flex-direction: column;
-            align-items: center;
-        }
+        transform: scale(0);
+        animation: mainMenuAppear 1s forwards linear;
         
+        @include media-md {
+            position: relative;
+            align-items: center;
+            top: 20%;
+        }
+
+        &--first-load {
+            animation: mainMenuAppear 1.5s 3.5s forwards linear;
+            
+            .slick-slider {
+                .slick-slide {
+                    & ~ .slick-cloned {
+                        transform: scale(0);
+                        animation: mainMenuAppear .1s forwards linear;
+                        animation-delay: 5s;
+                    }
+                }
+            }
+        }
     }
 
-    &--first-load {
-        animation: mainMenuAppear 1.5s 3.5s forwards linear;
+    &__desktop {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+
+        @include media-md {
+            display: none;
+        }
+    }
+
+    .slick-slider {
+        display: none;
+        position: static;
+        width: 50%;
+
+        @include media-md {
+            display: block;
+        }
+
+        .slick-list {
+            width: 100%;
+            overflow: visible;
+        }
+
+        .slick-slide {
+            & ~ .slick-cloned {
+                transform: scale(0);
+                animation: mainMenuAppear .1s forwards linear;
+                animation-delay: 1s;
+            }
+        }
+        
+        .slick-active, .slick-current {
+            .main-menu-item {
+                transform: scale(1.2);
+                img {
+                    filter: grayscale(0);
+                }
+            }
+        }
+
+        .slick-arrow {
+            z-index: 3;
+            height: 100%;
+            width: 35%;
+
+            &::before {
+                content: none;
+            }
+        }
     }
 }
 
