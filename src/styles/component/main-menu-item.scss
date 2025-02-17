@@ -49,5 +49,16 @@
             color: var(--pink-text-color);
             text-shadow: 0 0 2rem var(--pink-glow-color);
         }
+
+        @include media-md {
+            img {
+                filter: unset;
+            }
+    
+            h2 {
+                color: var(--cyan-text-color);
+                text-shadow: 0 0 2rem var(--cyan-glow-color);
+            }
+        }
     }
 }
