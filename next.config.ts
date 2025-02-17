@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  assetPrefix: "/portfolio-neon",
+  output: 'export',
+  distDir: 'dist',
+  images: {
+    unoptimized: true,
+  }
 };
 
 export default nextConfig;
