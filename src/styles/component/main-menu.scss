@@ -29,12 +29,11 @@
             animation: mainMenuAppear 1.5s 3.5s forwards linear;
             
             .slick-slider {
-                .slick-slide {
-                    & ~ .slick-cloned {
-                        transform: scale(0);
-                        animation: mainMenuAppear .1s forwards linear;
-                        animation-delay: 5s;
-                    }
+
+                .slick-slide.slick-cloned {
+                    transform: scale(0);
+                    animation: mainMenuAppear .1s forwards linear;
+                    animation-delay: 5s;
                 }
             }
         }
@@ -53,34 +52,35 @@
     .slick-slider {
         display: none;
         position: static;
-        width: 50%;
+        width: 100%;
 
         @include media-md {
             display: block;
         }
 
         .slick-list {
-            width: 100%;
+            width: 150%;
             overflow: visible;
+            left: -25%;
         }
 
-        .slick-slide {
-            & ~ .slick-cloned {
-                transform: scale(0);
-                animation: mainMenuAppear .1s forwards linear;
-                animation-delay: 1s;
-            }
+        .slick-cloned {
+            transform: scale(0);
+            animation: mainMenuAppear .1s forwards linear;
+            animation-delay: 1s;
         }
         
-        .slick-active, .slick-current {
-            .main-menu-item {
-                transform: scale(1.2);
-                img {
-                    filter: grayscale(0);
+        
+        .active-slide {
+                .main-menu-item {
+                    transform: scale(1.2);
+                    img {
+                        filter: grayscale(0);
+                    }
                 }
             }
-        }
-
+        
+        
         .slick-arrow {
             z-index: 3;
             height: 100%;
