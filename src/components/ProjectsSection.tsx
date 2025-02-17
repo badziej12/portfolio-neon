@@ -1,17 +1,19 @@
 import { ExitButton } from "./ExitButton";
 import { ProjectsSectionItem } from "./ProjectsSectionItem";
+import windowBlindIcon from "../../public/assets/images/projects/window-blind-icon.svg";
+import skiIcon from "../../public/assets/images/projects/ski-icon.svg";
 
 export const ProjectsSection = () => {
 
     const projects = [
         {
-            imageSrc: "/assets/images/projects/window-blind-icon.svg",
+            imageSrc: windowBlindIcon,
             imageAlt: "Lech-System icon",
             heading: "Lech-System",
             description: "Strona internetowa firmy Lech-System, zajmującej się produkcją rolet, moskitier i żaluzji. Strona została wykonana przy użyciu technologii takich jak React i Next.js.",
         },
         {
-            imageSrc: "/assets/images/projects/ski-icon.svg",
+            imageSrc: skiIcon,
             imageAlt: "Narty w Appeninach icon",
             heading: "Narty w Appeninach",
             description: "Strona kontaktowa dla organizotra wyjazdów na narty w Apeninach. Została wykonana przy użyciu HTML, CSS i JavaScript.",

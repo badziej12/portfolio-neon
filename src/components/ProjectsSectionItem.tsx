@@ -1,8 +1,8 @@
 import { FC } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type ProjectsSectionItemProps = {
-    imageSrc: string;
+    imageSrc: StaticImageData;
     imageAlt: string;
     heading: string;
     description: string;

@@ -1,13 +1,13 @@
 import { useScreen } from "@/context/ScreenContext";
 import Image from "next/image";
+import exitBtnImg from "../../public/assets/images/cross.png";
 
 export const ExitButton = () => {
     const {onScreenChange} = useScreen();
-    const image = "/assets/images/cross.png";
 
     return (
         <button className="exit-button" type="button" onClick={() => onScreenChange("main-menu")}>
-            <Image width={40} height={40} src={image} alt="Exit" />
+            <Image width={40} height={40} src={exitBtnImg} alt="Exit" />
         </button>
     )   
 }

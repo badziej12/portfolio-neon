@@ -4,7 +4,7 @@ import { FC } from "react";
 
 type MainMenuItemProps = {
     title: string;
-    image: string | StaticImageData;
+    image: StaticImageData;
     imageAlt: string;
     screenName: string;
 }

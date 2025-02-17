@@ -1,7 +1,9 @@
 import { useFirstLoad } from "@/context/ScreenContext";
 import { MainMenuItem } from "./MainMenuItem";
 import Slider from "react-slick";
-import menuItemImage from "../../public/assets/images/about-menu-item.png";
+import aboutItemImage from "../../public/assets/images/about-menu-item.png";
+import projectsItemImage from "../../public/assets/images/projects-menu-item.png";
+import contactItemImage from "../../public/assets/images/contact-menu-item.png";
 
 export const MainMenu = () => {
     const { isFirstLoad } = useFirstLoad();
@@ -9,44 +11,25 @@ export const MainMenu = () => {
     const menuItems = [
         {
             title: "About",
-            image: menuItemImage,
+            image: aboutItemImage,
             imageAlt: "About",
             screenName: "about",
         },
         {
             title: "Projects",
-            image: "/assets/images/projects-menu-item.png",
+            image: projectsItemImage,
             imageAlt: "Projects",
             screenName: "projects",
         },
         {
             title: "Contact",
-            image: "/assets/images/contact-menu-item.png",
+            image: contactItemImage,
             imageAlt: "Contact",
             screenName: "contact",
         },
     ];
 
-    const menuItemsDesktop = [
-        {
-            title: "Contact",
-            image: "/assets/images/contact-menu-item.png",
-            imageAlt: "Contact",
-            screenName: "contact",
-        },
-        {
-            title: "About",
-            image: menuItemImage,
-            imageAlt: "About",
-            screenName: "about",
-        },
-        {
-            title: "Projects",
-            image: "/assets/images/projects-menu-item.png",
-            imageAlt: "Projects",
-            screenName: "projects",
-        },
-    ];
+    const menuItemsDesktop = [menuItems[menuItems.length - 1], ...menuItems.slice(0, -1)];
 
     const settings = {
         dots: false,
