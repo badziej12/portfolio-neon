@@ -40,7 +40,7 @@ export const MainMenu = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         waitForAnimate: true,
-        beforeChange: (_: any, next: SetStateAction<number>) => setActiveIndex(next), // Aktualizujemy indeks PRZED zmianą slajdu
+        beforeChange: (_: number, next: SetStateAction<number>) => setActiveIndex(next),
       };
     
     return (
