@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import aboutItemImage from "../../public/assets/images/about-menu-item.png";
 import projectsItemImage from "../../public/assets/images/projects-menu-item.png";
 import contactItemImage from "../../public/assets/images/contact-menu-item.png";
-import { SetStateAction, ComponentState, useState } from "react";
+import { SetStateAction, useState } from "react";
 
 export const MainMenu = () => {
     const { isFirstLoad } = useFirstLoad();
@@ -40,7 +40,7 @@ export const MainMenu = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         waitForAnimate: true,
-        beforeChange: (_: number, next: SetStateAction<number>) => setActiveIndex(next), // Aktualizujemy indeks PRZED zmianą slajdu
+        beforeChange: (_: number, next: SetStateAction<number>) => setActiveIndex(next),
       };
     
     return (
