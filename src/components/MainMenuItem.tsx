@@ -1,10 +1,10 @@
 import { useScreen } from "@/context/ScreenContext";
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import { FC } from "react";
 
 type MainMenuItemProps = {
     title: string;
-    image: string;
+    image: string | StaticImageData;
     imageAlt: string;
     screenName: string;
 }

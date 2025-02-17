@@ -1,6 +1,7 @@
 import { useFirstLoad } from "@/context/ScreenContext";
 import { MainMenuItem } from "./MainMenuItem";
 import Slider from "react-slick";
+import menuItemImage from "../../public/assets/images/about-menu-item.png";
 
 export const MainMenu = () => {
     const { isFirstLoad } = useFirstLoad();
@@ -8,19 +9,19 @@ export const MainMenu = () => {
     const menuItems = [
         {
             title: "About",
-            image: "/portfolio-neon/assets/images/about-menu-item.png",
+            image: menuItemImage,
             imageAlt: "About",
             screenName: "about",
         },
         {
             title: "Projects",
-            image: "/portfolio-neon/assets/images/projects-menu-item.png",
+            image: "/assets/images/projects-menu-item.png",
             imageAlt: "Projects",
             screenName: "projects",
         },
         {
             title: "Contact",
-            image: "/portfolio-neon/assets/images/contact-menu-item.png",
+            image: "/assets/images/contact-menu-item.png",
             imageAlt: "Contact",
             screenName: "contact",
         },
@@ -29,19 +30,19 @@ export const MainMenu = () => {
     const menuItemsDesktop = [
         {
             title: "Contact",
-            image: "/portfolio-neon/assets/images/contact-menu-item.png",
+            image: "/assets/images/contact-menu-item.png",
             imageAlt: "Contact",
             screenName: "contact",
         },
         {
             title: "About",
-            image: "/portfolio-neon/assets/images/about-menu-item.png",
+            image: menuItemImage,
             imageAlt: "About",
             screenName: "about",
         },
         {
             title: "Projects",
-            image: "/portfolio-neon/assets/images/projects-menu-item.png",
+            image: "/assets/images/projects-menu-item.png",
             imageAlt: "Projects",
             screenName: "projects",
         },
