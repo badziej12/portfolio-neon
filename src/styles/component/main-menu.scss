@@ -17,25 +17,11 @@
         padding-top: 4.8rem;
         justify-content: space-around;
         transform: scale(0);
-        animation: mainMenuAppear 1s forwards linear;
         
         @include media-md {
             position: relative;
             align-items: center;
             top: 20%;
-        }
-
-        &--first-load {
-            animation: mainMenuAppear 1.5s 3.5s forwards linear;
-            
-            .slick-slider {
-
-                .slick-slide.slick-cloned {
-                    transform: scale(0);
-                    animation: mainMenuAppear .1s forwards linear;
-                    animation-delay: 5s;
-                }
-            }
         }
     }
 
@@ -66,7 +52,6 @@
 
         .slick-cloned {
             transform: scale(0);
-            animation: mainMenuAppear .1s forwards linear;
             animation-delay: 1s;
         }
         
@@ -88,6 +73,33 @@
 
             &::before {
                 content: none;
+            }
+        }
+    }
+
+    &.loaded {
+        .main-menu {
+            &__content {
+                animation: mainMenuAppear 1s forwards linear;
+
+                &--first-load {
+                    animation: mainMenuAppear 1.5s 3.5s forwards linear;
+                    
+                    .slick-slider {
+        
+                        .slick-slide.slick-cloned {
+                            transform: scale(0);
+                            animation: mainMenuAppear .1s forwards linear;
+                            animation-delay: 5s;
+                        }
+                    }
+                }
+            }
+
+            .slick-slider {
+                .slick-cloned {
+                    animation: mainMenuAppear .1s forwards linear;
+                }
             }
         }
     }
