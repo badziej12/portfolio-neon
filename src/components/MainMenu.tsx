@@ -1,14 +1,15 @@
-import { useFirstLoad } from "@/context/ScreenContext";
 import { MainMenuItem } from "./MainMenuItem";
 import Slider from "react-slick";
 import aboutItemImage from "../../public/assets/images/about-menu-item.png";
 import projectsItemImage from "../../public/assets/images/projects-menu-item.png";
 import contactItemImage from "../../public/assets/images/contact-menu-item.png";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
+import { useLoading } from "@/context/LoadingContext";
 
 export const MainMenu = () => {
-    const { isFirstLoad } = useFirstLoad();
+    const { isFirstLoad, isCompletedLoading, pushRefToList } = useLoading();
     const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const menuItems = [
         {
@@ -42,27 +43,59 @@ export const MainMenu = () => {
         waitForAnimate: true,
         beforeChange: (_: number, next: SetStateAction<number>) => setActiveIndex(next),
       };
-    
-    return (
-        <div className={`main-menu ${isFirstLoad ? "main-menu--first-load" : ""}`}>
-            <div className={`main-menu__content ${isFirstLoad ? "main-menu__content--first-load" : ""}`}>
+
+    useEffect(() => {
+
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const renderMainMenuItems = () => {
+        if (windowWidth >= 768) {
+            return (
+                <div className="main-menu__desktop">
+                    {menuItemsDesktop.map((item) => (
+                        <MainMenuItem ref={(el: HTMLDivElement) => pushRefToList(el)}
+                         key={item.title} 
+                         title={item.title} 
+                         image={item.image} 
+                         imageAlt={item.imageAlt} 
+                         screenName={item.screenName} />
+                    ))}
+                </div>
+            )
+        } else {
+            return (
                 <Slider {...settings}>
                     {menuItems.map((item, index) => {
                         const nextIndex = (activeIndex + 1) % menuItems.length;
 
                         return (
                             <div key={item.title} className={`slide ${index === nextIndex ? "active-slide" : ""}`}>
-                                <MainMenuItem title={item.title} image={item.image} imageAlt={item.imageAlt} screenName={item.screenName} />
+                                <MainMenuItem ref={(el: HTMLDivElement) => pushRefToList(el)} 
+                                    title={item.title} 
+                                    image={item.image} 
+                                    imageAlt={item.imageAlt} 
+                                    screenName={item.screenName} />
                             </div>
                         );
                     })}
                 </Slider>
-                <div className="main-menu__desktop">
-                    {menuItemsDesktop.map((item) => (
-                        <MainMenuItem key={item.title} title={item.title} image={item.image} imageAlt={item.imageAlt} screenName={item.screenName} />
-                    ))}
-                </div>
+            )
+        }
+    }
+    
+    return (
+        <div className={`main-menu ${isCompletedLoading ? 'loaded' : ''}`}>
+            <div className={`main-menu__content ${isFirstLoad ? "main-menu__content--first-load" : ""}`}>
+                {renderMainMenuItems()}
             </div>
         </div>
     )
-}
+};

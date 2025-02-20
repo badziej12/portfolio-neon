@@ -1,6 +1,7 @@
 @import "../mixins.scss";
 
 .console-screen {
+    display: none;
     position: relative;
     height: 10%;
     border: .5rem solid var(--cyan-color);

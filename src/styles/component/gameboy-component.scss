@@ -26,7 +26,6 @@
       height: 100%;
       background-image: url("~/public/assets/images/grid-bg-2.png");
       background-repeat: repeat-x;
-      animation: moveBg 200s infinite linear, slideInBg 8s 2s forwards;
       transform: rotateX(20deg) translate(-25%, 100%);
     }
 
@@ -44,7 +43,6 @@
     }
   }
 
-
   &__device {
     position: relative;
     z-index: 2;
@@ -54,24 +52,40 @@
     position: relative;
     width: 335.1rem;
     height: 335.1rem;
-
-    @include media-xl {
-      animation: gameboyZoomIMobile 3s 2s forwards;
-    }
-
   }
 
   &__gameboy-screen-image, &__gameboy-device-image {
+    top: -100vh;
     position: absolute;
     transform: translate(-.5%, 2%) scale(0.2);
-    animation: gameboyMoveIn 2s forwards, gameboyZoomIn 3s 2s forwards;
     transform-origin: center;
     width: 100%;
     height: 100%;
   }
 
-  &__gameboy-screen-image {
-    animation: gameboyMoveIn 2s forwards, gameboyZoomIn 3s 2s forwards, screenFadeOut 2s 2s forwards;
+  &.loaded {
+    .gameboy-component {
+
+      &__background {
+        &::before {
+          animation: moveBg 200s infinite linear, slideInBg 8s 2s forwards;
+        }
+      }
+
+      &__gameboy-image-container {
+        @include media-xl {
+          animation: gameboyZoomIMobile 3s 2s forwards;
+        }
+      }
+
+      &__gameboy-screen-image, &__gameboy-device-image {
+        animation: gameboyMoveIn 2s forwards, gameboyZoomIn 3s 2s forwards;
+      }
+
+      &__gameboy-screen-image {
+        animation: gameboyMoveIn 2s forwards, gameboyZoomIn 3s 2s forwards, screenFadeOut 2s 2s forwards;
+      }
+    }
   }
 }
 

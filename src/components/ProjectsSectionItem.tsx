@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { forwardRef } from "react";
 import Image, { StaticImageData } from "next/image";
+import { useLoading } from "@/context/LoadingContext";
 
 type ProjectsSectionItemProps = {
     imageSrc: StaticImageData;
@@ -8,11 +9,13 @@ type ProjectsSectionItemProps = {
     description: string;
 }
 
-export const ProjectsSectionItem: FC<ProjectsSectionItemProps> = ({ imageSrc, imageAlt, heading, description }) => {
+export const ProjectsSectionItem = forwardRef<HTMLDivElement, ProjectsSectionItemProps>(({ imageSrc, imageAlt, heading, description }, ref) => {
+    const { handleItemLoading } = useLoading();
+
     return (
-        <div className="projects-section-item">
+        <div ref={ref} className="projects-section-item">
             <div className="projects-section-item__icon-box">
-                <Image src={imageSrc} alt={imageAlt} width={40} height={40} />
+                <Image src={imageSrc} alt={imageAlt} width={40} height={40} priority={true} onLoadingComplete={handleItemLoading} />
             </div>
             <div className="projects-section-item__description-box">
                 <div className="projects-section-item__description-box__container">
@@ -29,4 +32,6 @@ export const ProjectsSectionItem: FC<ProjectsSectionItemProps> = ({ imageSrc, im
             </div>
         </div>
     )
-}
+});
+
+ProjectsSectionItem.displayName = "ProjectsSectionItem";

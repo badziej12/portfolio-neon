@@ -2,8 +2,10 @@ import { ExitButton } from "./ExitButton";
 import { ProjectsSectionItem } from "./ProjectsSectionItem";
 import windowBlindIcon from "../../public/assets/images/projects/window-blind-icon.svg";
 import skiIcon from "../../public/assets/images/projects/ski-icon.svg";
+import { useLoading } from "@/context/LoadingContext";
 
 export const ProjectsSection = () => {
+    const { loadRefs, isCompletedLoading } = useLoading();
 
     const projects = [
         {
@@ -21,10 +23,15 @@ export const ProjectsSection = () => {
     ]
 
     return (
-        <div className="projects-section">
+        <div style={{display: isCompletedLoading ? "block" : "none"}} className="projects-section">
             <div className="projects-section__content">
                 {projects.map((project) => (
                     <ProjectsSectionItem
+                        ref={(el) => {
+                            if (el && !loadRefs.current.includes(el)) {
+                                loadRefs.current.push(el);
+                            }
+                        }}
                         key={project.heading} 
                         imageSrc={project.imageSrc} 
                         imageAlt={project.imageAlt} 
