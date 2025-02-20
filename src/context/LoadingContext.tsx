@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, FC, useEffect, RefObject, useRef, Dispatch, SetStateAction } from "react";
-import { number } from "yup";
+import React, { createContext, useContext, useState, FC, useEffect, RefObject, useRef } from "react";
 
 type LoadingContextType = {
     progress: number;
@@ -11,8 +10,8 @@ type LoadingContextType = {
     increaseItemsToLoad: (value: number) => void;
     handleItemLoading: () => void;
     resetItemsToLoad: () => void;
-    loadRefs: RefObject<(HTMLDivElement | null)[]>;
-    pushRefToList: (el: HTMLDivElement | HTMLImageElement) => void;
+    loadRefs: RefObject<(HTMLDivElement | HTMLImageElement | HTMLButtonElement | null)[]>;
+    pushRefToList: (el: HTMLDivElement | HTMLImageElement | HTMLButtonElement) => void;
 };
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
@@ -26,7 +25,7 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
     const [progress, setProgress] = useState(0);
     const [isCompletedLoading, setIsCompletedLoading] = useState(false);
     const [isFirstLoad, setIsFirstLoad] = useState(true);
-    const loadRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const loadRefs = useRef<(HTMLDivElement | HTMLImageElement | HTMLButtonElement | null)[]>([]);
     
 
     const increaseProgress = (value: number) => {
@@ -40,14 +39,14 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
     }
 
     const resetItemsToLoad = () => {
-        setItemsToLoad(0);
+        setItemsToLoad(1);
     }
 
     const handleItemLoading = () => {
         increaseProgress(1);
     }
 
-    const pushRefToList = (el: HTMLDivElement | HTMLImageElement) => {
+    const pushRefToList = (el: HTMLDivElement | HTMLImageElement | HTMLButtonElement) => {
         if (el && !loadRefs.current.includes(el)) {
             loadRefs.current.push(el);
         }
@@ -65,7 +64,11 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
         console.log("Zmiana progressu", progress);
 
         if (progress >= itemsToLoad) {
-            setIsCompletedLoading(true);
+            const timer = setInterval(() => {
+                setIsCompletedLoading(true);
+            }, 600);
+
+            return () => clearInterval(timer);
         } else {
             setIsCompletedLoading(false);
         }

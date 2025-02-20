@@ -1,6 +1,6 @@
 import { useLoading } from "@/context/LoadingContext";
 import { useScreen } from "@/context/ScreenContext";
-import React, { FC, RefObject, useEffect, useRef } from "react";
+import React, { FC, useEffect } from "react";
 
 type ScreenSwitcherProps = {
     children: React.ReactNode[];

@@ -1,4 +1,4 @@
-import { FC, forwardRef } from "react";
+import { forwardRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import { useLoading } from "@/context/LoadingContext";
 

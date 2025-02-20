@@ -7,7 +7,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import { useLoading } from "@/context/LoadingContext";
 
 export const MainMenu = () => {
-    const { increaseProgress, isFirstLoad, isCompletedLoading, pushRefToList } = useLoading();
+    const { isFirstLoad, isCompletedLoading, pushRefToList } = useLoading();
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

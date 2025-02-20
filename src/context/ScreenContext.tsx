@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, FC, useEffect } from "react";
+import React, { createContext, useContext, useState, FC } from "react";
 import { useLoading } from "./LoadingContext";
 
 type ScreenContextType = {

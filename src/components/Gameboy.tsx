@@ -2,7 +2,7 @@ import { useScreen } from "@/context/ScreenContext";
 import Image from "next/image";
 import gameboyScreenImg from "../../public/assets/images/gameboy/gameboy-screen.png";
 import gameboyDeviceImg from "../../public/assets/images/gameboy/gameboy-device.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoading } from "@/context/LoadingContext";
 import dynamic from "next/dynamic";
 

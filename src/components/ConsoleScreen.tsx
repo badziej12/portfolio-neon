@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { ExitButton } from "./ExitButton";
+import { useLoading } from "@/context/LoadingContext";
 
 
 type ConsoleScreenProps = {
@@ -7,9 +8,10 @@ type ConsoleScreenProps = {
 }
 
 export const ConsoleScreen: FC<ConsoleScreenProps> = ({ children }) => {
+    const { isCompletedLoading } = useLoading();
 
     return (
-        <div className="console-screen">
+        <div style={{display: isCompletedLoading ? "block" : "none"}} className="console-screen">
             <span className="console-screen__corner console-screen__corner--left"></span>
             <span className="console-screen__corner console-screen__corner--up-right"></span>
             <span className="console-screen__corner console-screen__corner--down-right"></span>

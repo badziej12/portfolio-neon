@@ -1,6 +1,7 @@
 .loader {
     box-sizing: border-box;
     overflow: hidden;
+    z-index: 3;
 }
 
 .loader-content::after {
@@ -21,8 +22,8 @@
 .loading-bar {
     display: flex;
     overflow: hidden;
-    transition-duration: .5s;
-    transition-timing-function: steps(1, jump-both);
+    transition-duration: .6s;
+    transition-timing-function: linear;
 }
 
 .loading-cover {

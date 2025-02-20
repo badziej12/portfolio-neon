@@ -15,9 +15,21 @@ import "slick-carousel/slick/slick-theme.css";
 import type {AppProps} from "next/app";
 import { LoadingProvider, useLoading } from "@/context/LoadingContext";
 import { ScreenProvider } from "@/context/ScreenContext";
+import { useEffect, useState } from "react";
 
 const Loader = () => {
     const { progress, itemsToLoad, isCompletedLoading } = useLoading();
+    const [ barWidth, setBarWidth ] = useState(0);
+
+    useEffect(() => {
+        if (progress * 100 / itemsToLoad >= barWidth) {
+            setBarWidth(progress * 100 / itemsToLoad );
+        }
+
+        if (progress === 0) {
+            setBarWidth(0);
+        }
+    }, [progress, itemsToLoad])
   
     return (
       <div className="loader"
@@ -39,7 +51,7 @@ const Loader = () => {
         }}
             className="loader-content"
         >
-            <div className="loading-bar" style={{ width: `${progress*100 / itemsToLoad}%`, height: "100%" }} > 
+            <div className="loading-bar" style={{ width: `${barWidth}%`, height: "100%" }} > 
                 <div className="loading-cover">
                     <div className="loading-element"></div>
                     <div className="loading-element"></div>
