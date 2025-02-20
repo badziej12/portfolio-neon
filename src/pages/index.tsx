@@ -7,22 +7,22 @@ import { useEffect } from "react";
 
 const LazyGameboy = dynamic(() => import("../components/Gameboy").then(mod => mod.Gameboy), {
     ssr: false,
-    loading: () => {
-        const { addBuffor } = useLoading();
-        
-        useEffect(() => {
-            addBuffor();
-        }, []);
+    // loading: () => {
+    //     const { increaseItemsToLoad } = useLoading();
 
-        return null;
-    },
+    //     useEffect(() => {
+    //         increaseItemsToLoad(7);
+    //     }, [])
+
+    //     return null;
+    // }
 });
 
 export default function Home() {
     const {increaseProgress} = useLoading();
 
     useEffect(() => {
-        increaseProgress(10);
+        increaseProgress(1);
     }, []);
 
     return (

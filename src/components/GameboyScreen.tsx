@@ -4,7 +4,7 @@ import { ConsoleScreen } from "./ConsoleScreen";
 import { ContactForm } from "./ContactForm";
 import { ProjectsSection } from "./ProjectsSection";
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { MainMenu } from "./MainMenu";
 import { useLoading } from "@/context/LoadingContext";
 
@@ -16,15 +16,15 @@ export const GameboyScreen = () => {
     const { increaseProgress } = useLoading();
 
     useEffect(() => {
-        increaseProgress(10);
+        increaseProgress(1);
     }, [])
 
     return (
         <div className={"gameboy-screen"}>
             <div className="gameboy-screen__content">
                 <ScreenSwitcher>
-                    {/* <MainMenu key={"main-menu"} /> */}
-                    <LazyMainMenu key={"main-menu"} />
+                    <MainMenu key={"main-menu"} />
+                    {/* <LazyMainMenu key={"main-menu"} /> */}
                     <ConsoleScreen key={"about"}>
                         <AboutSection />
                     </ConsoleScreen>

@@ -1,11 +1,18 @@
-import React, { createContext, useContext, useState, FC, useEffect } from "react";
+import React, { createContext, useContext, useState, FC, useEffect, RefObject, useRef, Dispatch, SetStateAction } from "react";
+import { number } from "yup";
 
 type LoadingContextType = {
     progress: number;
     increaseProgress: (value: number) => void;
     resetProgress: () => void;
-    addBuffor: () => void;
     isFirstLoad: boolean;
+    isCompletedLoading: boolean;
+    itemsToLoad: number;
+    increaseItemsToLoad: (value: number) => void;
+    handleItemLoading: () => void;
+    resetItemsToLoad: () => void;
+    loadRefs: RefObject<(HTMLDivElement | null)[]>;
+    pushRefToList: (el: HTMLDivElement | HTMLImageElement) => void;
 };
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
@@ -15,19 +22,35 @@ type LoadingProviderProps = {
 }
 
 export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
-    const [itemsToLoad, setItemsToLoad] = useState<number>(0);
+    const [itemsToLoad, setItemsToLoad] = useState<number>(6);
     const [progress, setProgress] = useState(0);
+    const [isCompletedLoading, setIsCompletedLoading] = useState(false);
     const [isFirstLoad, setIsFirstLoad] = useState(true);
+    const loadRefs = useRef<(HTMLDivElement | null)[]>([]);
     
 
     const increaseProgress = (value: number) => {
-        setProgress((prev) => Math.min(prev + value, 100));
+        setProgress((prev) => prev + value);
     }
 
     const resetProgress = () => setProgress(0);
 
-    const addBuffor = () => {
-        setItemsToLoad((prev) => prev + 1);
+    const increaseItemsToLoad = (value: number) => {
+        setItemsToLoad((prev) => prev + value);
+    }
+
+    const resetItemsToLoad = () => {
+        setItemsToLoad(0);
+    }
+
+    const handleItemLoading = () => {
+        increaseProgress(1);
+    }
+
+    const pushRefToList = (el: HTMLDivElement | HTMLImageElement) => {
+        if (el && !loadRefs.current.includes(el)) {
+            loadRefs.current.push(el);
+        }
     }
 
     useEffect(() => {
@@ -35,24 +58,31 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
     }, [itemsToLoad]);
 
     useEffect(() => {
-        increaseProgress(10);
+        increaseProgress(1);
     }, []);
 
     useEffect(() => {
         console.log("Zmiana progressu", progress);
-        if (progress === 100) {
+
+        if (progress >= itemsToLoad) {
+            setIsCompletedLoading(true);
+        } else {
+            setIsCompletedLoading(false);
+        }
+    }, [progress, itemsToLoad]);
+
+    useEffect(() => {
+        if (isCompletedLoading && isFirstLoad) {
             const timer = setInterval(() => {
                 setIsFirstLoad(false);
             }, 5000);
 
-            resetProgress();
-
             return () => clearInterval(timer);
-        }
-    }, [progress])
+        };
+    }, [isCompletedLoading]);
 
     return (
-        <LoadingContext.Provider value={{ progress, increaseProgress, resetProgress, isFirstLoad, addBuffor }}>
+        <LoadingContext.Provider value={{ progress, increaseProgress, resetProgress, isFirstLoad, isCompletedLoading, loadRefs, itemsToLoad, increaseItemsToLoad, handleItemLoading, resetItemsToLoad, pushRefToList }}>
             {children}
         </LoadingContext.Provider>
     );

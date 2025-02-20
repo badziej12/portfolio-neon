@@ -7,9 +7,8 @@ import { SetStateAction, useEffect, useState } from "react";
 import { useLoading } from "@/context/LoadingContext";
 
 export const MainMenu = () => {
-    const { progress, increaseProgress, isFirstLoad } = useLoading();
+    const { increaseProgress, isFirstLoad, isCompletedLoading, pushRefToList } = useLoading();
     const [activeIndex, setActiveIndex] = useState<number>(0);
-    const [ isLoaded, setIsLoaded ] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const menuItems = [
@@ -46,13 +45,6 @@ export const MainMenu = () => {
       };
 
     useEffect(() => {
-        if (progress === 100) {
-            setIsLoaded(true);
-        }
-    }, [progress]);
-
-    useEffect(() => {
-        increaseProgress(10);
 
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
@@ -68,8 +60,13 @@ export const MainMenu = () => {
         if (windowWidth >= 768) {
             return (
                 <div className="main-menu__desktop">
-                    {menuItemsDesktop.map((item) => (
-                        <MainMenuItem key={item.title} title={item.title} image={item.image} imageAlt={item.imageAlt} screenName={item.screenName} />
+                    {menuItemsDesktop.map((item, index) => (
+                        <MainMenuItem ref={(el: HTMLDivElement) => pushRefToList(el)}
+                         key={item.title} 
+                         title={item.title} 
+                         image={item.image} 
+                         imageAlt={item.imageAlt} 
+                         screenName={item.screenName} />
                     ))}
                 </div>
             )
@@ -81,7 +78,11 @@ export const MainMenu = () => {
 
                         return (
                             <div key={item.title} className={`slide ${index === nextIndex ? "active-slide" : ""}`}>
-                                <MainMenuItem title={item.title} image={item.image} imageAlt={item.imageAlt} screenName={item.screenName} />
+                                <MainMenuItem ref={(el: HTMLDivElement) => pushRefToList(el)} 
+                                    title={item.title} 
+                                    image={item.image} 
+                                    imageAlt={item.imageAlt} 
+                                    screenName={item.screenName} />
                             </div>
                         );
                     })}
@@ -91,10 +92,10 @@ export const MainMenu = () => {
     }
     
     return (
-        <div className={`main-menu ${isLoaded ? 'loaded' : ''}`}>
+        <div className={`main-menu ${isCompletedLoading ? 'loaded' : ''}`}>
             <div className={`main-menu__content ${isFirstLoad ? "main-menu__content--first-load" : ""}`}>
                 {renderMainMenuItems()}
             </div>
         </div>
     )
-}
+};

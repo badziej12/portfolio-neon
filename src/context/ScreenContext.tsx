@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, FC, useEffect } from "react";
+import { useLoading } from "./LoadingContext";
 
 type ScreenContextType = {
     currentScreen: string;
@@ -13,8 +14,12 @@ type ScreenProviderProps = {
 
 export const ScreenProvider: FC<ScreenProviderProps> = ({ children }) => {
     const [currentScreen, setCurrentScreen] = useState<string>("main-menu");
+    const { loadRefs, resetItemsToLoad, resetProgress } = useLoading();
 
     const onScreenChange = (screen: string) => {
+        loadRefs.current = [];
+        resetProgress();
+        resetItemsToLoad();
         setCurrentScreen(screen);
     };
 
