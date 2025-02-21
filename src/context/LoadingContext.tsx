@@ -6,6 +6,7 @@ type LoadingContextType = {
     resetProgress: () => void;
     isFirstLoad: boolean;
     isCompletedLoading: boolean;
+    resetCompletedLoading: () => void;
     itemsToLoad: number;
     increaseItemsToLoad: (value: number) => void;
     handleItemLoading: () => void;
@@ -29,10 +30,14 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
     
 
     const increaseProgress = useCallback((value: number) => {
-        setProgress((prev) => prev + value);
+        setProgress((prev) => {
+            return prev + value;
+        });
     }, []);
 
     const resetProgress = () => setProgress(0);
+
+    const resetCompletedLoading = () => setIsCompletedLoading(false);
 
     const increaseItemsToLoad = useCallback((value: number) => {
         setItemsToLoad((prev) => prev + value);
@@ -40,14 +45,10 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
 
     const resetItemsToLoad = () => {
         setItemsToLoad(0);
-    }
+    };
 
     const handleItemLoading = () => {
-        if (itemsToLoad === 0) {
-            setIsCompletedLoading(true);
-        } else {
-            increaseProgress(1);
-        }
+        increaseProgress(1);
     }
 
     const pushRefToList = (el: HTMLDivElement | HTMLImageElement | HTMLButtonElement) => {
@@ -57,14 +58,8 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
     }
 
     useEffect(() => {
-        if (progress >= itemsToLoad && itemsToLoad != 0) {
-            const timer = setTimeout(() => {
-                setIsCompletedLoading(true);
-            }, 600);
-
-            return () => clearTimeout(timer);
-        } else {
-            setIsCompletedLoading(false);
+        if (progress >= itemsToLoad && itemsToLoad > 0) {
+            setTimeout(() => setIsCompletedLoading(true), 600);
         }
     }, [progress, itemsToLoad]);
 
@@ -79,7 +74,7 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
     }, [isCompletedLoading, isFirstLoad]); 
 
     return (
-        <LoadingContext.Provider value={{ progress, increaseProgress, resetProgress, isFirstLoad, isCompletedLoading, loadRefs, itemsToLoad, increaseItemsToLoad, handleItemLoading, resetItemsToLoad, pushRefToList }}>
+        <LoadingContext.Provider value={{ progress, increaseProgress, resetProgress, isFirstLoad, isCompletedLoading, resetCompletedLoading, loadRefs, itemsToLoad, increaseItemsToLoad, handleItemLoading, resetItemsToLoad, pushRefToList }}>
             {children}
         </LoadingContext.Provider>
     );

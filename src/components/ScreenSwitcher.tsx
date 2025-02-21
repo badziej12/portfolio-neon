@@ -1,22 +1,16 @@
-import { useLoading } from "@/context/LoadingContext";
-import { useScreen } from "@/context/ScreenContext";
-import React, { FC, useEffect } from "react";
+import { ScreenKeys, useScreen } from "@/context/ScreenContext";
+import React, { FC } from "react";
 
 type ScreenSwitcherProps = {
     children: React.ReactNode[];
 }
 
 type ChildProps = {
-    onScreenChange: (screen: string) => void;
+    onScreenChange: (screen: ScreenKeys) => void;
 }
 
 export const ScreenSwitcher: FC<ScreenSwitcherProps> = ({children}) => {
     const { currentScreen, onScreenChange } = useScreen();
-    const { loadRefs, increaseItemsToLoad } = useLoading();
-
-    useEffect(() => {
-        increaseItemsToLoad(loadRefs.current.length);
-    }, [currentScreen, increaseItemsToLoad, loadRefs]);
 
     return (
         <div className="screen-switcher" style={{height: "100%"}}>

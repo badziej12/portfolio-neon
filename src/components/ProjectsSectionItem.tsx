@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
 import { useLoading } from "@/context/LoadingContext";
 
@@ -8,16 +8,21 @@ type ProjectsSectionItemProps = {
     heading: string;
     description: string;
     projectUrl: string;
+    projectBoxImg: StaticImageData;
+    projectBoxImgHover: StaticImageData;
 }
 
-export const ProjectsSectionItem = forwardRef<HTMLDivElement, ProjectsSectionItemProps>(({ imageSrc, imageAlt, heading, description, projectUrl }, ref) => {
+export const ProjectsSectionItem: FC<ProjectsSectionItemProps> = ({ imageSrc, imageAlt, heading, description, projectUrl, projectBoxImg, projectBoxImgHover }) => {
     const { handleItemLoading } = useLoading();
+
 
     return (
         <a href={projectUrl} target="_blank" rel="noopener nofollow">
-            <div ref={ref} className="projects-section-item">
+            <div className="projects-section-item">
                 <div className="projects-section-item__icon-box">
-                    <Image src={imageSrc} alt={imageAlt} width={40} height={40} priority={true} onLoadingComplete={handleItemLoading} />
+                    <Image className="projects-section-item__icon-box__image-bg" src={projectBoxImg} alt="Background" onLoadingComplete={handleItemLoading} fill priority={true} />
+                    <Image className="projects-section-item__icon-box__image-bg projects-section-item__icon-box__image-bg--hover" onLoadingComplete={handleItemLoading} src={projectBoxImgHover} alt="Bacground hovered" fill priority={true} />
+                    <Image className="projects-section-item__icon-box__icon" src={imageSrc} alt={imageAlt} width={40} height={40} priority={true} onLoadingComplete={handleItemLoading} />
                 </div>
                 <div className="projects-section-item__description-box">
                     <div className="projects-section-item__description-box__container">
@@ -36,6 +41,4 @@ export const ProjectsSectionItem = forwardRef<HTMLDivElement, ProjectsSectionIte
         </a>
         
     )
-});
-
-ProjectsSectionItem.displayName = "ProjectsSectionItem";
+};
