@@ -1,12 +1,8 @@
 @import "../mixins.scss";
 
-.projects-section-item {
+a {
     $projects-item-count: 3;
-
-    display: flex;
-    gap: 3.2rem;
-    cursor: pointer;
-
+    
     @for $i from 2 through $projects-item-count {
         &:nth-child(#{$i}n) {
             .projects-section-item{
@@ -34,19 +30,32 @@
             }
         }
     }
+}
+
+.projects-section-item {
+    display: flex;
+    gap: 3.2rem;
+    cursor: pointer;
 
     &__icon-box {
+        position: relative;
+        --bgImgBox: '';
         display: flex;
         justify-content: center;
         align-items: center;
         min-width: 14rem;
         width: 14rem;
         height: 14rem;
-        background-image: url("~/public/assets/images/projects/project-box.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
 
-        img {
+        &__image-bg {
+            opacity: 1;
+
+            &--hover {
+                opacity: 0;
+            }
+        }
+
+        &__icon {
             position: relative;
             height: 70%;
             width: 70%;
@@ -216,9 +225,17 @@
     &:hover {
         .projects-section-item {
             &__icon-box {
-                background-image: url("~/public/assets/images/projects/project-box-hovered.svg");
 
-                img {
+                &__image-bg {
+                    opacity: 0;
+
+                    &--hover {
+                        opacity: 1;
+                    }
+                }
+                
+
+                &__icon {
                     top: .3rem;
                     left: .3rem;
                     filter: drop-shadow(0 0 .5rem #FFFFFF40) brightness(2);

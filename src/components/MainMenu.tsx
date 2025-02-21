@@ -5,13 +5,20 @@ import projectsItemImage from "../../public/assets/images/projects-menu-item.png
 import contactItemImage from "../../public/assets/images/contact-menu-item.png";
 import { SetStateAction, useEffect, useState } from "react";
 import { useLoading } from "@/context/LoadingContext";
+import { StaticImageData } from "next/image";
+import { ScreenKeys } from "@/context/ScreenContext";
 
 export const MainMenu = () => {
     const { isFirstLoad, isCompletedLoading, pushRefToList } = useLoading();
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const menuItems = [
+    const menuItems: {
+        title: string,
+        image: StaticImageData,
+        imageAlt: string,
+        screenName: ScreenKeys,
+    }[] = [
         {
             title: "Contact",
             image: contactItemImage,

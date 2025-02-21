@@ -26,10 +26,10 @@ const Loader = () => {
             setBarWidth(progress * 100 / itemsToLoad );
         }
 
-        if (progress === 0) {
+        if (isCompletedLoading) {
             setBarWidth(0);
         }
-    }, [progress, itemsToLoad, barWidth])
+    }, [progress, itemsToLoad, barWidth, isCompletedLoading])
   
     return (
       <div className="loader"

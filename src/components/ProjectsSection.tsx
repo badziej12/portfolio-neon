@@ -4,9 +4,13 @@ import windowBlindIcon from "../../public/assets/images/projects/window-blind-ic
 import skiIcon from "../../public/assets/images/projects/ski-icon.svg";
 import portfolioIcon from "../../public/assets/images/projects/portfolio-icon.svg";
 import { useLoading } from "@/context/LoadingContext";
+import projectBoxImg from "../../public/assets/images/projects/project-box.svg";
+import projectBoxImgHovered from "../../public/assets/images/projects/project-box-hovered.svg";
+// import decoration1Img from "../../public/assets/images/projects/decoration-1.svg";
+// import decoration2Img from "../../public/assets/images/projects/decoration-2.svg";
 
 export const ProjectsSection = () => {
-    const { loadRefs, isCompletedLoading } = useLoading();
+    const { isCompletedLoading } = useLoading();
 
     const projects = [
         {
@@ -38,17 +42,14 @@ export const ProjectsSection = () => {
             <div className="projects-section__content">
                 {projects.map((project) => (
                     <ProjectsSectionItem
-                        ref={(el) => {
-                            if (el && !loadRefs.current.includes(el)) {
-                                loadRefs.current.push(el);
-                            }
-                        }}
                         key={project.heading} 
                         imageSrc={project.imageSrc} 
                         imageAlt={project.imageAlt} 
                         heading={project.heading} 
                         description={project.description} 
                         projectUrl={project.projectUrl}
+                        projectBoxImg={projectBoxImg}
+                        projectBoxImgHover={projectBoxImgHovered}
                     /> 
                 ))}
             </div>
