@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 export const AboutSection = () => {
-    const fullText = "Jestem front-end developerem, świeżo po ponad rocznym stażu w Opera Software. \
-                    Moja przygoda z programowaniem zaczęła się z własnej inicjatywy – choć podstawy zdobyłem na studiach (Teleinformatyka), \
-                    to dopiero przy pracy nad inżynierskim projektem odkryłem swoją pasję do web developmentu. \
-                    Tworzenie aplikacji webowych przyszło mi naturalnie, dlatego postanowiłem pogłębić wiedzę poprzez kursy i samodzielne projekty. \
-                    Najwięcej doświadczenia zdobyłem podczas stażu, gdzie pracowałem nad realnymi zadaniami, rozwiązywałem problemy i poznałem profesjonalne workflow. \
-                    Miałem okazję współpracować z różnymi działami, takimi jak design, backend i marketing, co nauczyło mnie efektywnej komunikacji i pracy zespołowej. \
-                    Poza programowaniem pasjonuję się sportem i podróżami.";
+    const fullText = "I'm a front-end developer, recently completing a year-long internship at Opera Software. \
+                        My journey with programming started on my own initiative—although I learned the basics during my studies (Teleinformatics), \
+                        it was while working on my engineering project that I discovered my passion for web development. \
+                        Building web applications came naturally to me, so I decided to deepen my knowledge through courses and personal projects. \
+                        I gained the most experience during my internship, where I worked on real tasks, solved problems, and learned professional workflows. \
+                        I had the opportunity to collaborate with various departments, such as design, backend, and marketing, which taught me effective communication and teamwork. \
+                        Outside of programming, I'm passionate about sports and traveling.";
     const [displayedText, setDisplatedText] = useState("");
     const [index, setIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(false);

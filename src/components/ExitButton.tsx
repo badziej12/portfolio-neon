@@ -12,7 +12,7 @@ export const ExitButton = () => {
         <button className="exit-button" onClick={() => onScreenChange("main-menu")}>
             <Image fill src={exitBoxImg} alt="Exit box" priority={true} onLoadingComplete={handleItemLoading} />
             <Image width={20} height={31} src={exitBtnImg} alt="Exit" priority={true} onLoadingComplete={handleItemLoading} />
-            <p>Wróć</p>
+            <p>Back</p>
         </button>
     )
 }

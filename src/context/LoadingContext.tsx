@@ -30,9 +30,7 @@ export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
     
 
     const increaseProgress = useCallback((value: number) => {
-        setProgress((prev) => {
-            return prev + value;
-        });
+        setProgress((prev) => prev + value);
     }, []);
 
     const resetProgress = () => setProgress(0);

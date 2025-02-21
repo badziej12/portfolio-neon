@@ -28,9 +28,9 @@ export const ScreenProvider: FC<ScreenProviderProps> = ({ children }) => {
 
     const loadableItems = {
         "main-menu": 3,
-        "about": 2,
+        "about": 5,
         "projects": 11,
-        "contact": 2,
+        "contact": 5,
     }
 
     useEffect(() => {
