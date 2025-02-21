@@ -1,25 +1,51 @@
+@import "../mixins.scss";
+
 .exit-button {
-    position: relative;
     box-sizing: border-box;
-    display: flex;
-    background-color: transparent;
     border: none;
-    
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: url("~/public/assets/images/exit/exit-box.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 154px;
+    aspect-ratio: 154/65;
     opacity: 1;
     cursor: pointer;
-    padding: 1rem;
-    border: .2rem solid var(--error-color);
-    background-color: #FF004040;
-    box-shadow: .2rem .2rem 0 .2rem #FF0040A0;
+    padding: 16px;
+
+    @include media-md {
+        width: 110px;
+        padding: 8px;
+    }
 
     img {
         position: relative;
-        filter: drop-shadow(0 0 1rem #FF0000);
+        max-height: 100%;
+
+        @include media-md {
+            height: 22px;
+        }
     }
 
     &:hover {
         opacity: 1;
         box-shadow: none;
         transform: translate(.4rem, .4rem);
+        filter: brightness(10);
+    }
+
+    p {
+        flex-grow: 1;
+        color: var(--cyan-text-color);
+        text-shadow: 0 0 2rem rgba(68, 252, 229, .5);
+        font-size: 28px;
+        font-family: "Jersey 10", serif;
+
+        @include media-md {
+            font-size: 20px;
+        }
     }
 }
