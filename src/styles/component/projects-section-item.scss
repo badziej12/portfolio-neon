@@ -269,7 +269,7 @@ a {
         padding: 16px 48px; 
         height: 100%;
         color: var(--cyan-text-color);
-        text-shadow: 0 0 2px var(--cyan-glow-color);
+        text-shadow: 0 0 2px rgba(68, 252, 229, .5);
         letter-spacing: 2px;
         transform: translateX(-100%);
         animation: projectCopySlideIn 1s forwards;
