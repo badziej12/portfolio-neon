@@ -1,12 +1,24 @@
 @import "../mixins.scss";
 
 .console-screen {
-    display: none;
+    width: 100%;
     position: relative;
     height: 10%;
     border: .5rem solid var(--cyan-color);
     background-image: url("~/public/assets/images/about/section-background.png");
     animation: consoleBackground 1s infinite steps(25), consoleExtend 1s 1s linear forwards;
+
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: 32px;
+        align-items: end;
+
+        @include media-md {
+            gap: 16px;
+        }
+    }
 
     &__corner {
         position: absolute;
@@ -100,8 +112,7 @@
 
     .exit-button {
         position: absolute;
-        right: 3rem;
-        top: 3rem;
+        right: 0;
         animation: showElement 1s steps(1);
     }
 }
@@ -117,11 +128,11 @@
 
 @keyframes consoleExtend {
     0% {
-        height: 10%;
+        flex-grow: 0;
         background: rgba(68, 252, 229, .1);
     }
     100% {
-        height: 100%;
+        flex-grow: 1;
         background: rgba(68, 252, 229, .1);
     }
     

@@ -4,12 +4,23 @@
     display: none;
     position: relative;
     padding: 3.2rem;
-    padding-top: 20rem;
+    padding-top: 3rem;
+    flex-direction: column;
+    gap: 32px;
+    align-items: end;
+    height: 100%;
+
+    @include media-md {
+        gap: 16px;
+    }
 
     &__content {
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 3.2rem;
+        overflow-y: scroll;
+        flex-grow: 1;
 
         @include media-md {
             gap: 10rem;
@@ -18,11 +29,5 @@
         @include media-sm {
             gap: 12rem;
         }
-    }
-
-    .exit-button {
-        position: absolute;
-        top: 1rem;
-        right: 2rem;
     }
 }

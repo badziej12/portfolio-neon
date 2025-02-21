@@ -13,6 +13,12 @@ export const MainMenu = () => {
 
     const menuItems = [
         {
+            title: "Contact",
+            image: contactItemImage,
+            imageAlt: "Contact",
+            screenName: "contact",
+        },
+        {
             title: "About",
             image: aboutItemImage,
             imageAlt: "About",
@@ -24,15 +30,7 @@ export const MainMenu = () => {
             imageAlt: "Projects",
             screenName: "projects",
         },
-        {
-            title: "Contact",
-            image: contactItemImage,
-            imageAlt: "Contact",
-            screenName: "contact",
-        },
     ];
-
-    const menuItemsDesktop = [menuItems[menuItems.length - 1], ...menuItems.slice(0, -1)];
 
     const settings = {
         dots: false,
@@ -60,7 +58,7 @@ export const MainMenu = () => {
         if (windowWidth >= 768) {
             return (
                 <div className="main-menu__desktop">
-                    {menuItemsDesktop.map((item) => (
+                    {menuItems.map((item) => (
                         <MainMenuItem ref={(el: HTMLDivElement) => pushRefToList(el)}
                          key={item.title} 
                          title={item.title} 

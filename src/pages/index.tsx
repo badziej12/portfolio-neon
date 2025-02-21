@@ -26,6 +26,7 @@ export default function Home() {
                 <link rel="preload" href={gameboyScreenImg.src} as="image" />
                 <link rel="preload" href={"styles/loader.css"} as="style" />
                 <link rel="stylesheet" href="styles/loader.css" />
+                <link rel="icon" href="favicon.ico" />
             </Head>
             <div className="main-wrapper">
                 <LazyGameboy />
