@@ -40,12 +40,14 @@ export const Gameboy = () => {
                         width={3351} 
                         height={3351} 
                         priority={true} 
+                        sizes="(max-width: 1920px) 100vw, 3351px"
                         onLoadingComplete={handleLoadingImage} />
                     <Image className={`gameboy-component__gameboy-screen-image`} 
                         src={gameboyScreenImg} alt="Gameboy screen" 
                         width={3351} 
                         height={3351} 
                         priority={true} 
+                        sizes="(max-width: 1368px) 95vw, 3351px"
                         onLoadingComplete={handleLoadingImage} />
                 </div>
             </div>

@@ -1,40 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Portfolio Neon
+
+Portfolio Neon is a portfolio website created to contact me and provide information about me. It includes a contact form, an about section, and projects that I have created. The project is hosted on Vercel at [portfolio-neon-ashen-eta.vercel.app](https://portfolio-neon-ashen-eta.vercel.app).
+
+## Description
+
+This is a one-page website that displays the appropriate section components using the `ScreenSwitcher` component. The website contains four sections:
+- **MainMenu**: The initial section used for navigation.
+- **AboutSection**: The about me section.
+- **ProjectsSection**: The section with my projects.
+- **ContactForm**: The section with the contact form.
+
+The website includes a loading system contained in the `LoadingContext`, which allows fully loaded views to be displayed at once.
 
 ## Getting Started
 
-First, run the development server:
+To install and run the project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/badziej12/portfolio-neon.git
+    cd portfolio-neon
+    ```
+
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+
+3. Run the project in development mode:
+    ```sh
+    npm run dev
+    ```
+
+4. Open your browser and go to `http://localhost:3000`.
+
+## Usage
+
+### Components
+
+#### ScreenSwitcher
+
+The `ScreenSwitcher` component displays the appropriate section based on the currently selected screen.
+
+```tsx
+import { ScreenSwitcher } from "@/components/ScreenSwitcher";
+
+<ScreenSwitcher>
+    <MainMenu key="main-menu" />
+    <AboutSection key="about" />
+    <ProjectsSection key="projects" />
+    <ContactForm key="contact" />
+</ScreenSwitcher>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### MainMenu
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The `MainMenu` component displays the main menu with navigation options to different sections.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```tsx
+import { MainMenu } from "@/components/MainMenu";
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+<MainMenu />
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### AboutSection
 
-## Learn More
+The `AboutSection` component displays information about me.
 
-To learn more about Next.js, take a look at the following resources:
+```tsx
+import { AboutSection } from "@/components/AboutSection";
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+<AboutSection />
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### ProjectsSection
 
-## Deploy on Vercel
+The `ProjectsSection` component displays a list of my projects.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```tsx
+import { ProjectsSection } from "@/components/ProjectsSection";
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+<ProjectsSection />
+```
+
+#### ContactForm
+
+The `ContactForm` component displays a contact form.
+
+```tsx
+import { ContactForm } from "@/components/ContactForm";
+
+<ContactForm />
+```
+
+## Project Structure
+
+```
+portfolio-neon/
+├── public/
+│   └── assets/
+│       └── images/
+│           └── gameboy/
+├── src/
+│   ├── components/
+│   │   ├── AboutSection.tsx
+│   │   ├── ContactForm.tsx
+│   │   ├── MainMenu.tsx
+│   │   ├── ProjectsSection.tsx
+│   │   ├── ProjectsSectionItem.tsx
+│   │   ├── ScreenSwitcher.tsx
+│   │   └── ...
+│   ├── context/
+│   │   ├── LoadingContext.tsx
+│   │   └── ScreenContext.tsx
+│   ├── pages/
+│   │   ├── index.tsx
+│   │   └── api/
+│   │       └── email.ts
+│   ├── styles/
+│   │   └── component/
+│   │       └── about-section.scss
+│   └── ...
+├── .eslintrc.json
+├── next.config.js
+├── package.json
+└── README.md
+```
+
+## Requirements
+
+- Node.js v14 or newer
+- npm v6 or newer
+
+## Authors
+
+- [Błazej Tondel](https://github.com/badziej12)
+
+
