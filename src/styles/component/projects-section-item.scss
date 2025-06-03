@@ -1,11 +1,11 @@
 @import "../mixins.scss";
 
 a {
-    $projects-item-count: 3;
-    
+    $projects-item-count: 7;
+
     @for $i from 2 through $projects-item-count {
         &:nth-child(#{$i}n) {
-            .projects-section-item{
+            .projects-section-item {
                 &__description-box {
                     &__container {
                         animation-delay: #{$i *.7}s;
@@ -29,6 +29,10 @@ a {
                 }
             }
         }
+    }
+
+    &:last-child {
+        margin-bottom: 48px;
     }
 }
 
@@ -152,7 +156,7 @@ a {
         &__decoration {
             position: absolute;
             background-repeat: no-repeat;
-            background-size: contain;   
+            background-size: contain;
             aspect-ratio: 1/1;
             filter: blur(20rem);
             animation: showCornerElements .5s forwards;
@@ -173,7 +177,7 @@ a {
             }
 
             &--right-corner {
-                top : 1.2rem;
+                top: 1.2rem;
                 right: 1.2rem;
                 background-image: url("~/public/assets/images/projects/decoration-2.svg");
                 width: 1rem;
@@ -194,7 +198,7 @@ a {
                 }
 
                 &--right-corner {
-                    top : 1.6rem;
+                    top: 1.6rem;
                     right: 1.6rem;
                     width: 1.2rem;
                 }
@@ -214,7 +218,7 @@ a {
                 }
 
                 &--right-corner {
-                    top : 2rem;
+                    top: 2rem;
                     right: 2rem;
                     width: 1.5rem;
                 }
@@ -233,7 +237,7 @@ a {
                         opacity: 1;
                     }
                 }
-                
+
 
                 &__icon {
                     top: .3rem;
@@ -241,7 +245,7 @@ a {
                     filter: drop-shadow(0 0 .5rem #FFFFFF40) brightness(2);
                 }
             }
-            
+
             &__description-box {
                 &__container {
                     transform: translate(.5rem, .5rem);
@@ -252,7 +256,7 @@ a {
                     background-color: #9AFFFF45;
                     box-shadow: none;
                 }
-                
+
 
                 &::before {
                     background-color: #DCFFFF;
@@ -266,14 +270,14 @@ a {
         position: absolute;
         left: 0;
         right: 0;
-        padding: 16px 48px; 
+        padding: 16px 48px;
         height: 100%;
         color: var(--cyan-text-color);
         text-shadow: 0 0 2px rgba(68, 252, 229, .5);
         letter-spacing: 2px;
         transform: translateX(-100%);
         animation: projectCopySlideIn 1s forwards;
-        
+
         h2 {
             font-size: 28px;
             font-weight: 400;
@@ -288,16 +292,16 @@ a {
         }
 
         @include media-xl {
-            padding: 16px 40px; 
+            padding: 16px 40px;
         }
 
         @include media-md {
-            padding: 3rem 6.4rem; 
+            padding: 3rem 6.4rem;
 
             h2 {
                 font-size: 24px;
-            }   
-            
+            }
+
             p {
                 font-size: 16px;
             }
@@ -309,6 +313,7 @@ a {
     0% {
         width: 0;
     }
+
     100% {
         width: 100%;
     }
@@ -318,6 +323,7 @@ a {
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(0);
     }
@@ -327,6 +333,7 @@ a {
     0% {
         box-shadow: none;
     }
+
     100% {
         box-shadow: .2rem .2rem 0 .2rem #00A0A0;
     }
@@ -336,15 +343,17 @@ a {
     0% {
         filter: blur(2rem);
     }
+
     100% {
         filter: blur(0);
     }
-} 
+}
 
 @keyframes shineSlide {
     0% {
         left: -100%;
     }
+
     100% {
         left: 100%;
     }
